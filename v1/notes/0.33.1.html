@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.33.1</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.33.1</h1>
+<p><strong>The agent can write your workspace again.</strong></p>
+<p>Since 0.30, an agent in a sandbox (Claude Code, pi, Codex) could read a shared workspace folder but not change it, and <code>git</code> refused the folder (&quot;dubious ownership&quot;). 0.33.1 fixes this.</p>
+<p><strong>After upgrading:</strong></p>
+<ul>
+<li>A sandbox that is shut down gets the fix at its next start.</li>
+<li>For one that is running, asleep or hibernated, run <code>doz shutdown NAME</code> and then <code>doz start NAME</code>.</li>
+</ul>
+<p>Your rules in <code>.dozignore</code> and <code>.dozreadonly</code> work as before.</p>
+<p>Upgrade with <code>doz upgrade</code>.</p>
+</body></html>
