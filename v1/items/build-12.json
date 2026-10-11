@@ -1,13 +1,18 @@
 {
   "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.33.1/doz-0.33.1-macos-arm64.tar.gz",
   "build": 12,
-  "channel": "canary",
+  "channel": "stable",
   "date": "2026-10-11",
   "history": [
     {
       "channel": "canary",
       "date": "2026-10-11",
       "event": "published"
+    },
+    {
+      "channel": "stable",
+      "date": "2026-10-11",
+      "event": "promoted"
     }
   ],
   "notes": "https://updates.dozersandbox.com/v1/notes/0.33.1.html",
