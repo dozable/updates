@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.34.0</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.34.0</h1>
+<h1>doz 0.34.0</h1>
+<p><strong>Dozer&#x27;s AI Kitchen, phase 1: try 42 coding agents and AI tools in one command, on a key from any major provider</strong> (issue #251; owner 2026-10-15: &quot;before 0.34, get it done and test and then /ship&quot;). Canary: stable moves on the owner&#x27;s promote.</p>
+<ul>
+<li><strong><code>doz try</code>:</strong> a throwaway sandbox for any supported tool, started and entered in one command. It gets its own empty folder, a network that reaches its model and nothing else, and the user&#x27;s key for its provider. On leaving it asks: sleep, delete or keep. Also <code>--rm</code>, <code>--keep</code>, <code>-d</code> and <code>--dry-run</code>.</li>
+<li><strong>Quick try</strong> in the dashboard: a full-page window with search, kind and category filters, and cards or a list. Try now opens a setup step for the model, key and folder. It opens at once, with the catalogue loading behind it. Start responds in the click&#x27;s frame (2–17 ms, was 0.9–1.8 s): both windows close, and the try&#x27;s page shows &quot;Preparing…&quot; with build progress in the terminal area. A failed create says why, with <strong>Back to setup</strong>.</li>
+<li><strong>A guide beside every try:</strong> what the tool is, the facts of this try, and first steps with <strong>Run</strong> and <strong>Copy</strong>. The build log shows how the image was made.</li>
+<li><strong>42 tools to try:</strong> 28 coding agents and 14 AI tools, with 83 more listed as coming. Each is one YAML recipe aligned to Kit v3, checked against a JSON Schema and spec. New recipes are checked in CI on the m1b runner (<code>make recipe-check</code>). Grok Build 1.0.52, Factory Droid and Docker Agent report agent status (OSC 7501).</li>
+<li><strong>Keys from any major provider:</strong> OpenAI, Anthropic, Google and xAI, plus the OpenRouter and Vercel AI Gateway gateways, and Google Stitch. Keys can be read on use from 1Password, AWS Secrets Manager or a command. Each provider has its own default.</li>
+<li><strong>Accounts &amp; keys redesigned</strong> (the owner&#x27;s chosen mockup, 617.B9):</li>
+<li>one card per provider, naming the tools its key serves, with the default chosen in place;</li>
+<li>one status per key: Works, Not checked, Refused, Can&#x27;t read, or No check;</li>
+<li>failing keys first, with the provider&#x27;s answer, the fix and the sandboxes affected;</li>
+<li><strong>By sandbox</strong>, with Change…;</li>
+<li><strong>Add a key</strong> for every provider, searchable by tool, or the exact <code>doz account add</code> line for 1Password, AWS, a command or a custom key;</li>
+<li>lists capped at 960 px; works at phone width.</li>
+<li><strong>Fix:</strong> a key its provider refused showed a green &quot;ok&quot;. It is now <code>rejected</code> on the page and in <code>doz account ls</code>. A source that can&#x27;t be read is <code>unavailable</code>, not refused.</li>
+<li><strong><code>doz search</code></strong> says whether Dozer runs a tool and how, or why not yet.</li>
+<li><strong>Web ports:</strong> <code>doz ports add</code> and <code>doz open</code>, plus an <strong>Open</strong> button in the sandbox header. The page is on this Mac only.</li>
+<li><strong>Fix:</strong> dashboard icons no longer blink every few seconds.</li>
+<li><strong>Statistics:</strong> the <code>dozer-telemetry</code> Worker knows the new recipe ids (deployed on the owner&#x27;s go).</li>
+<li><strong>Tests:</strong> <code>make test</code> 1071 tests, 0 failures, 4 skipped. The Accounts browser probe passed 29/29, and the Try-start latency probe passed.</li>
+</ul>
+</body></html>
