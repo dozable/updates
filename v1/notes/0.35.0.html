@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.35.0</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.35.0</h1>
+<h1>doz 0.35.0</h1>
+<p><strong>OpenCode 2, a choice of major version, and a model source and model for every tool that can take one</strong> (issue #259; owner 2026-10-17: &quot;Ok great. /ship&quot;). Canary: stable moves on the owner&#x27;s promote.</p>
+<ul>
+<li><strong>OpenCode 2</strong> has its own recipe (<code>@opencode/cli</code> 2.0.29) and is the recommended <code>opencode</code>. OpenCode 1 keeps its recipe and is updated within 1.x only.</li>
+<li><strong>An earlier major, everywhere a tool is chosen:</strong></li>
+<li><code>opencode@1</code> selects OpenCode 1, and <code>opencode@2.0.29</code> selects an exact release;</li>
+<li>it works in <code>doz try/new/create/up</code>, <code>doz_project.yaml</code> (<code>agent: opencode@1</code>), <code>doz search</code> and the <code>doz try</code> list;</li>
+<li>Quick try shows one OpenCode card with a Version choice;</li>
+<li>New Sandbox&#x27;s agent picker offers both majors.</li>
+<li>An existing sandbox never changes major.</li>
+<li><strong>Gateways for every OpenAI-compatible tool:</strong> OpenRouter and Vercel AI Gateway are offered to 22 more recipes, set by env, the tool&#x27;s own config file, launch arguments or a settings file written on each run. Recipes that aren&#x27;t offered a gateway say why: Grok Build, Claude Code, Codex, Antigravity, ADK, Gemini CLI and Stitch. CodeWhale and Maki take OpenRouter only.</li>
+<li><strong>Choosing a model:</strong> the host fetches each gateway&#x27;s public model list on the Mac and caches it for 24 h.</li>
+<li>The Try setup and New Sandbox have one &quot;Where TOOL gets its model&quot; section: providers, then gateways, each with its key in its row. A searchable model picker follows, and typed ids are still allowed.</li>
+<li>In the CLI: <code>doz models</code>, plus a did-you-mean for <code>--model</code>.</li>
+<li><code>doz_project.yaml</code> takes <code>model_source:</code> and <code>model:</code>.</li>
+<li><strong>OpenCode Zen&#x27;s free models, with no key:</strong> a model source of OpenCode 2 (<code>doz try opencode --provider opencode-zen</code>).</li>
+<li>There&#x27;s no account, and no key enters the sandbox; an account added later is used instead.</li>
+<li>The network allows only Zen&#x27;s two inference paths on opencode.ai, not its Console sign-in.</li>
+<li>Eight free models, each with its data terms shown in the picker and in <code>doz models</code>.</li>
+<li>The Guide says a key added with OpenCode&#x27;s own <code>/connect</code> is stored inside the sandbox.</li>
+<li><strong>Fix:</strong> adding the first gateway key in the Try setup kept asking for a key, even though the model picker had already loaded with the new key.</li>
+<li><strong>Fix:</strong> the web Try now plans the pinned version, as the CLI does. A host that couldn&#x27;t reach the registry used to refuse.</li>
+<li><strong>Blog and newsletter:</strong> a <code>tool-news</code> topic of its own (Worker deployed on the owner&#x27;s go).</li>
+<li><strong>Fix (recipe-check):</strong> the leak check counted the agent&#x27;s own background calls to its chosen source (pi listing OpenRouter&#x27;s models), which failed pi · openrouter in every full run; it now counts only requests to the host it tested, and a failure names them.</li>
+<li><strong>Tests:</strong> <code>make test</code> 1114 tests, 0 failures, 4 skipped. <code>make recipe-check RECIPES=all</code> covers 205 recipe × source checks: about 55 min on m1b, and 39 min on the M4 from a warm store. The model-source browser probe passed on a fresh store at 1440 and 390 px, light and dark. No real call to OpenCode Zen was made.</li>
+</ul>
+</body></html>

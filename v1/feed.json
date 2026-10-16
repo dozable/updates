@@ -1,6 +1,17 @@
 {
   "entries": [
     {
+      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.35.0/doz-0.35.0-macos-arm64.tar.gz",
+      "build": 14,
+      "channel": "canary",
+      "date": "2026-10-16",
+      "notes": "https://updates.dozersandbox.com/v1/notes/0.35.0.html",
+      "sha256": "8e9a19b4385b2299aca8fd2273efccc8b1cf5cb46ebdbeb6ead367b91d02416b",
+      "signature": "7WITn8gJUgyr+qLGbVKQdqTR0oWthjI24dBW2phxJliPfUVn8nAHiV+Ql6XEnXH2as1sx/QAftfWeBDAtnHjAA==",
+      "size": 23385761,
+      "version": "0.35.0"
+    },
+    {
       "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.34.0/doz-0.34.0-macos-arm64.tar.gz",
       "build": 13,
       "channel": "canary",
