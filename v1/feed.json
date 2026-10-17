@@ -3,7 +3,7 @@
     {
       "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.35.1/doz-0.35.1-macos-arm64.tar.gz",
       "build": 15,
-      "channel": "canary",
+      "channel": "stable",
       "date": "2026-10-17",
       "notes": "https://updates.dozersandbox.com/v1/notes/0.35.1.html",
       "sha256": "f7b11b757de7ccda1d4e7f4912d0ec4d3b118f0be12bee7a3daef23a6e9376b2",
