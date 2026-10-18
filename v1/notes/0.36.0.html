@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.36.0</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.36.0</h1>
+<h1>doz 0.36.0</h1>
+<p><strong>Dozer Sandbox is now Dozable: the name people see, everywhere in the app</strong> (issue #271; owner 2026-10-18: &quot;do as much as you can … Yes make public&quot;; trademark search on Dozable and Dosable clear). Canary: stable moves on the owner&#x27;s promote.</p>
+<ul>
+<li><strong>The name:</strong> <code>doz --help</code>, setup, uninstall, init, every message, the dashboard (title, install name, every view), the agent prompt, recipe and schema prose, README, CONTRIBUTING, the 29-chapter manual, the CLI guides and DocC say Dozable. <code>doz</code> stays, &quot;the Dozable command line&quot;.</li>
+<li><strong>Kept on purpose, because shipped builds read them:</strong> the update feed <code>updates.dozersandbox.com/v1/feed.json</code> and its signed message, the tap <code>dozer-sandbox/tap</code> and repository constants (they move with the GitHub org, later), the store and config folders (<code>dozer-sandbox</code>), Keychain <code>doz-*</code> names, the recipe namespace <code>com.dozersandbox/*</code>, <code>/run/dozer*</code> and <code>.dozer*</code> in the guest, and the Swift target names.</li>
+<li><strong>The default projects folder for new installs is <code>~/doz-workspaces</code></strong> (owner 2026-10-18). A Mac that already has <code>~/dozer-sandbox-workspaces</code> keeps using it while <code>defaults.projects_dir</code> is unset; an explicit setting always wins (<code>Workspace.unsetProjectsDir</code>).</li>
+<li><strong>Left for a guest-image rebuild:</strong> the text inside guest-injected scripts (clipboard shim version line, &quot;no terminal of a Dozer session&quot;). Also unchanged: <code>User-Agent: Dozer-Sandbox</code>, LICENSE/NOTICE, <code>profiles/*.json</code> (regenerated only by VM runs).</li>
+<li><strong>Tests:</strong> <code>make test</code> 1117 tests, 0 failures, 4 skipped (new: <code>ProjectsDirDefaultTests</code>).</li>
+</ul>
+</body></html>
