@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.36.2</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.36.2</h1>
+<h1>doz 0.36.2</h1>
+<p><strong><code>doz nuke</code> and <code>doz inventory</code>: start over without reinstalling</strong> (issue #276; owner 2026-10-19: &quot;remove everything back to a fresh install, doz stays installed ; dry run with --dry-run ; lists everything and their sizes and location with a prompt to confirm by default&quot;, and &quot;a doz inventory command that lists everything (same that nuke shows; just for information only)&quot;). Canary: stable moves on the owner&#x27;s promote.</p>
+<ul>
+<li><strong><code>doz nuke</code></strong> lists everything Dozable keeps on this Mac, each item with its place and size, then asks once, and removes it: the store, the settings folder, the download cache (<code>~/Library/Caches/dozer-sandbox</code>) and the keychain items Dozable made (accounts&#x27; keys, the default GitHub key; never another <code>doz-*</code> item). <code>doz</code> stays installed; the next command is a first run. <code>--dry-run</code> lists and removes nothing; <code>--yes</code> skips the question. A running host is stopped first; a running <code>doz ui</code> or <code>doz serve</code> refuses it.</li>
+<li><strong>Never touched:</strong> workspace folders, the Mac&#x27;s own Claude Code and Codex logins, Apple&#x27;s <code>container</code> data.</li>
+<li><strong><code>doz inventory</code></strong> prints the same list and changes nothing.</li>
+<li><strong>Test safety:</strong> a guarded test run gets an in-memory keychain and a cache only from <code>DOZ_TEST_CACHE_DIR</code> — the first version, run guarded, still listed this Mac&#x27;s real cache.</li>
+<li><strong>Docs:</strong> the manual&#x27;s &quot;Start over: doz nuke&quot; section and troubleshooting row, the CLI reference.</li>
+<li><strong>Tests:</strong> <code>make test</code> 1120 tests, 0 failures, 4 skipped (new: <code>NukeTests</code>); <code>make docs-drift-check</code> green; a real <code>nuke --yes</code> on a scratch store removed exactly its three items.</li>
+</ul>
+</body></html>
