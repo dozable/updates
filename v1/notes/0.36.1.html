@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.36.1</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.36.1</h1>
+<h1>doz 0.36.1</h1>
+<p><strong>The Homebrew tap is <code>dozable/tap</code></strong> (issue #274; owner 2026-10-19: &quot;yes, move the tap and release 0.36.1; change the link URLs also to replace dozer&quot;). Canary: stable moves on the owner&#x27;s promote.</p>
+<ul>
+<li><strong>The tap moved:</strong> <code>dozer-sandbox/homebrew-tap</code> was transferred to <code>dozable/homebrew-tap</code> on 2026-10-19. Installing is now <code>brew trust --tap dozable/tap &amp;&amp; brew install dozable/tap/doz</code>. GitHub redirects the old name, so a Mac that tapped <code>dozer-sandbox/tap</code> keeps getting updates.</li>
+<li><strong><code>doz upgrade</code> uses whichever name this Mac tapped</strong> (<code>UpdateInstaller.installedTap</code>; the old name is <code>Distribution.previousTaps</code>), so a channel switch never taps the same formulas a second time.</li>
+<li><strong>The docs name the new tap:</strong> README, the manual (with a note for the old name), the CLI guides and DocC. The sign-up and privacy pages are on dozable.com. The manual&#x27;s settings reference was regenerated: it had fallen behind a description.</li>
+<li><strong>Workspace:</strong> <code>/ship</code>&#x27;s default tap and <code>/promote</code>&#x27;s checks name <code>dozable/homebrew-tap</code>; the release checkout&#x27;s remote was re-pointed.</li>
+<li><strong>Tests:</strong> <code>make test</code> 1117 tests, 0 failures, 4 skipped; <code>make docs-drift-check</code> green; <code>Scripts/test_ship.py</code> 186 OK.</li>
+</ul>
+</body></html>
