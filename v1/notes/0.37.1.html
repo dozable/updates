@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.1</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.1</h1>
+<h1>doz 0.37.1</h1>
+<p><strong><code>doz upgrade</code> trusts Dozable&#x27;s Homebrew tap</strong> (issue #301). Owner 2026-10-20: &quot;yes make doz trust the tap automatically&quot;.</p>
+<ul>
+<li>Newer Homebrew loads a formula only from a tap you trust, and refused <code>dozable/tap</code> for a Mac that tapped it earlier or under its old name (&quot;Refusing to load formula dozable/tap/doz-canary from untrusted tap dozable/tap&quot;). <code>doz upgrade</code> and <code>doz upgrade --channel …</code> now run <code>brew trust --tap dozable/tap</code> first — only that tap (and the name it was tapped under), only when Homebrew has <code>brew trust</code> and the tap is not trusted yet — and say so in one line.</li>
+<li>This takes effect from 0.37.1 on: upgrading FROM an earlier doz still needs <code>brew trust dozable/tap</code> once by hand.</li>
+<li>The manual&#x27;s &quot;start completely fresh&quot; answer now includes the trust step and the tap&#x27;s full name.</li>
+<li>Tests: <code>make test-updates</code> 59/59 (the fake Homebrew keeps a trusted list: trusted once, said, never twice); full <code>make test</code> 1128, 0 failures; <code>docs-drift-check</code> clean.</li>
+</ul>
+</body></html>
