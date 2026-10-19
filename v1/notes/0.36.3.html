@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.36.3</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.36.3</h1>
+<h1>doz 0.36.3</h1>
+<p><strong>Fixes to 0.36: the nightly recipe check is green again</strong> (issue #280; owner 2026-10-19: &quot;yes, record them and re-profile&quot;). Canary: stable moves on the owner&#x27;s promote.</p>
+<ul>
+<li><strong>Two endpoints nobody had decided made the nightly Recipes run fail</strong> (its network-profile comparison, two nights running). Factory Droid 0.240.1 posts to <code>api.factory.ai/api/automations/sync</code> at start-up without a credential, even in its airgap mode; Nanocoder 1.31.0 asks npm for its latest release after it starts (unconditional — no setting turns it off; a notice only). Both are now vendor hosts limited to that one path (Crush&#x27;s release check is the precedent; a fresh try shows no refusal), and both profiles were re-recorded (<code>make profile-agents AGENTS=&quot;droid nanocoder&quot;</code>, scratch store, fake keys) with the decisions.</li>
+<li><strong>Backlog added on this umbrella:</strong> 624.B1 a file explorer panel in the dashboard (#281); 617.B12 gained &quot;offer opening workspace files on the Mac&quot; (#279).</li>
+<li><strong>Tests:</strong> <code>make test</code> 1120 tests, 0 failures, 4 skipped; <code>make recipes</code> green; the permission pin gains <code>vendor:droid</code> and <code>vendor:nanocoder</code> only.</li>
+</ul>
+</body></html>
