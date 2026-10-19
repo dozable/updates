@@ -1,0 +1,18 @@
+{
+  "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.36.7/doz-0.36.7-macos-arm64.tar.gz",
+  "build": 22,
+  "channel": "canary",
+  "date": "2026-10-19",
+  "history": [
+    {
+      "channel": "canary",
+      "date": "2026-10-19",
+      "event": "published"
+    }
+  ],
+  "notes": "https://updates.dozersandbox.com/v1/notes/0.36.7.html",
+  "sha256": "0349d4e3293472631abed35e1c4a84cb45b28b9528e8073d7e3817ea59a007d2",
+  "signature": "VBiG3Gus/yqGNaxdsx34Sg4rw1xeFx7dQXUdvxVFda7h69UQy/0F5mU4DZNXK2JfTDYMLwZ/KVvimPs4n9TbDQ==",
+  "size": 23431718,
+  "version": "0.36.7"
+}
