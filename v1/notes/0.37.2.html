@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.2</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.2</h1>
+<h1>doz 0.37.2</h1>
+<p><strong>Dozable moves to its own GitHub organisation, and the update feed to updates.dozable.com</strong> (issue #277; loop 627, step 4). Owner 2026-10-20: &quot;yes go with step 4&quot;.</p>
+<ul>
+<li><strong>The source is at github.com/dozable/dozable</strong>, a fresh public repository: the history was rewritten so every commit carries the noreply address (four merge commits carried the personal one), the 24 releases re-created with the same files, the CI Macs registered to it, and every outside contributor&#x27;s pull request waits for approval before it runs on them. The feed&#x27;s entries and the Homebrew formulas download from it. The old <code>dozer-sandbox/dozer-sandbox</code> is deleted on the owner&#x27;s word; the <code>dozer-sandbox</code> organisation stays, empty, so nobody can take its names.</li>
+<li><strong>The update feed is https://updates.dozable.com/v1/feed.json.</strong> Every doz before 0.37.2 asks updates.dozersandbox.com, which is now a permanent redirect there (a released 0.36.5 finds 0.37.1 through it). The website&#x27;s version line and the privacy page name the new host.</li>
+<li><strong>Everything else moved to the <code>dozable</code> organisation:</strong> the website, the feed, the tap (in 0.36.1), the newsletter and the closed package&#x27;s repository (<code>dozable-cloud-prelaunch</code>). dozable.com is verified there.</li>
+<li><strong>The official builds&#x27; closed package is <code>DozableCloud</code></strong>, and the audit&#x27;s old-name check covers it. Its queue of unsent statistics now lives in doz&#x27;s settings folder (<code>~/.config/doz</code>): 0.37.0 and 0.37.1 official builds kept writing the old <code>~/.config/dozer-sandbox</code>, re-creating the folder the upgrade notes say to delete.</li>
+<li>The workspace&#x27;s checkout is <code>repo/app/dozable</code>.</li>
+<li>Tests: full <code>make test</code> 1128, 0 failures (from a clean build at the new path); <code>make test-updates</code> 59/59 against the new host; <code>docs-drift-check</code> and <code>make audit</code> green; the closed package 22/22 and an official-flavour build reporting <code>&quot;official&quot;: true</code>.</li>
+</ul>
+</body></html>
