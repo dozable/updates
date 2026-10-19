@@ -1,5 +1,5 @@
 {
-  "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.33.1/doz-0.33.1-macos-arm64.tar.gz",
+  "archive": "https://github.com/dozable/dozable/releases/download/v0.33.1/doz-0.33.1-macos-arm64.tar.gz",
   "build": 12,
   "channel": "stable",
   "date": "2026-10-11",

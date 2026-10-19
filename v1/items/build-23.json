@@ -1,5 +1,5 @@
 {
-  "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.37.0/doz-0.37.0-macos-arm64.tar.gz",
+  "archive": "https://github.com/dozable/dozable/releases/download/v0.37.0/doz-0.37.0-macos-arm64.tar.gz",
   "build": 23,
   "channel": "canary",
   "date": "2026-10-19",

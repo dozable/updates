@@ -1,7 +1,7 @@
 {
   "entries": [
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.37.1/doz-0.37.1-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.37.1/doz-0.37.1-macos-arm64.tar.gz",
       "build": 24,
       "channel": "canary",
       "date": "2026-10-19",
@@ -12,7 +12,7 @@
       "version": "0.37.1"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.37.0/doz-0.37.0-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.37.0/doz-0.37.0-macos-arm64.tar.gz",
       "build": 23,
       "channel": "canary",
       "date": "2026-10-19",
@@ -23,7 +23,7 @@
       "version": "0.37.0"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.36.7/doz-0.36.7-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.36.7/doz-0.36.7-macos-arm64.tar.gz",
       "build": 22,
       "channel": "canary",
       "date": "2026-10-19",
@@ -34,7 +34,7 @@
       "version": "0.36.7"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.36.5/doz-0.36.5-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.36.5/doz-0.36.5-macos-arm64.tar.gz",
       "build": 21,
       "channel": "stable",
       "date": "2026-10-19",
@@ -45,7 +45,7 @@
       "version": "0.36.5"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.36.4/doz-0.36.4-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.36.4/doz-0.36.4-macos-arm64.tar.gz",
       "build": 20,
       "channel": "stable",
       "date": "2026-10-19",
@@ -56,7 +56,7 @@
       "version": "0.36.4"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.36.3/doz-0.36.3-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.36.3/doz-0.36.3-macos-arm64.tar.gz",
       "build": 19,
       "channel": "canary",
       "date": "2026-10-19",
@@ -67,7 +67,7 @@
       "version": "0.36.3"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.36.2/doz-0.36.2-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.36.2/doz-0.36.2-macos-arm64.tar.gz",
       "build": 18,
       "channel": "stable",
       "date": "2026-10-18",
@@ -78,7 +78,7 @@
       "version": "0.36.2"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.36.1/doz-0.36.1-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.36.1/doz-0.36.1-macos-arm64.tar.gz",
       "build": 17,
       "channel": "stable",
       "date": "2026-10-18",
@@ -89,7 +89,7 @@
       "version": "0.36.1"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.36.0/doz-0.36.0-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.36.0/doz-0.36.0-macos-arm64.tar.gz",
       "build": 16,
       "channel": "canary",
       "date": "2026-10-18",
@@ -100,7 +100,7 @@
       "version": "0.36.0"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.35.1/doz-0.35.1-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.35.1/doz-0.35.1-macos-arm64.tar.gz",
       "build": 15,
       "channel": "stable",
       "date": "2026-10-17",
@@ -111,7 +111,7 @@
       "version": "0.35.1"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.35.0/doz-0.35.0-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.35.0/doz-0.35.0-macos-arm64.tar.gz",
       "build": 14,
       "channel": "canary",
       "date": "2026-10-16",
@@ -122,7 +122,7 @@
       "version": "0.35.0"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.34.0/doz-0.34.0-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.34.0/doz-0.34.0-macos-arm64.tar.gz",
       "build": 13,
       "channel": "canary",
       "date": "2026-10-15",
@@ -133,7 +133,7 @@
       "version": "0.34.0"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.33.1/doz-0.33.1-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.33.1/doz-0.33.1-macos-arm64.tar.gz",
       "build": 12,
       "channel": "stable",
       "date": "2026-10-11",
@@ -144,7 +144,7 @@
       "version": "0.33.1"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.33.1-rc.1/doz-0.33.1-rc.1-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.33.1-rc.1/doz-0.33.1-rc.1-macos-arm64.tar.gz",
       "build": 11,
       "channel": "canary",
       "date": "2026-10-11",
@@ -155,7 +155,7 @@
       "version": "0.33.1-rc.1"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.33.0/doz-0.33.0-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.33.0/doz-0.33.0-macos-arm64.tar.gz",
       "build": 10,
       "channel": "stable",
       "date": "2026-10-11",
@@ -166,7 +166,7 @@
       "version": "0.33.0"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.33.0-rc.2/doz-0.33.0-rc.2-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.33.0-rc.2/doz-0.33.0-rc.2-macos-arm64.tar.gz",
       "build": 9,
       "channel": "canary",
       "date": "2026-10-11",
@@ -177,7 +177,7 @@
       "version": "0.33.0-rc.2"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.33.0-rc.1/doz-0.33.0-rc.1-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.33.0-rc.1/doz-0.33.0-rc.1-macos-arm64.tar.gz",
       "build": 8,
       "channel": "canary",
       "date": "2026-10-10",
@@ -188,7 +188,7 @@
       "version": "0.33.0-rc.1"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.32.0/doz-0.32.0-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.32.0/doz-0.32.0-macos-arm64.tar.gz",
       "build": 7,
       "channel": "stable",
       "date": "2026-10-09",
@@ -199,7 +199,7 @@
       "version": "0.32.0"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.32.0-rc.4/doz-0.32.0-rc.4-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.32.0-rc.4/doz-0.32.0-rc.4-macos-arm64.tar.gz",
       "build": 6,
       "channel": "canary",
       "date": "2026-10-09",
@@ -210,7 +210,7 @@
       "version": "0.32.0-rc.4"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.32.0-rc.3/doz-0.32.0-rc.3-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.32.0-rc.3/doz-0.32.0-rc.3-macos-arm64.tar.gz",
       "build": 5,
       "channel": "canary",
       "date": "2026-10-09",
@@ -221,7 +221,7 @@
       "version": "0.32.0-rc.3"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.32.0-rc.2/doz-0.32.0-rc.2-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.32.0-rc.2/doz-0.32.0-rc.2-macos-arm64.tar.gz",
       "build": 4,
       "channel": "canary",
       "date": "2026-10-09",
@@ -232,7 +232,7 @@
       "version": "0.32.0-rc.2"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.32.0-rc.1/doz-0.32.0-rc.1-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.32.0-rc.1/doz-0.32.0-rc.1-macos-arm64.tar.gz",
       "build": 3,
       "channel": "canary",
       "date": "2026-10-09",
@@ -243,7 +243,7 @@
       "version": "0.32.0-rc.1"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.31.1/doz-0.31.1-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.31.1/doz-0.31.1-macos-arm64.tar.gz",
       "build": 2,
       "channel": "stable",
       "date": "2026-10-08",
@@ -254,7 +254,7 @@
       "version": "0.31.1"
     },
     {
-      "archive": "https://github.com/dozer-sandbox/dozer-sandbox/releases/download/v0.31.0/doz-0.31.0-macos-arm64.tar.gz",
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.31.0/doz-0.31.0-macos-arm64.tar.gz",
       "build": 1,
       "channel": "canary",
       "date": "2026-10-08",
