@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.3</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.3</h1>
+<h1>doz 0.37.3</h1>
+<p><strong>First run around one base image, ending on a First sandbox</strong> (issue #279; loop 627, step 6). Owner 2026-10-20: &quot;v2 (back and next stay where they are) … 3. Should be first sandbox (not a try) ; in fact i think we should drop the special status of a &quot;try&quot; vs not a try but keep the ability to easily delete&quot;, then &quot;looks good&quot; on doz-dev.</p>
+<ul>
+<li><strong>One base, downloaded early.</strong> The store has one base (<code>defaults.base</code>, Node.js by default). Onboarding starts its download in the host straight away and carries on asking questions; every tool&#x27;s image on that base waits for it rather than pulling the same layers again, and that wait shows as its own step, with an hourglass instead of a spinner.</li>
+<li><strong>The dashboard&#x27;s setup follows the chosen design:</strong> Welcome (this Mac&#x27;s checks) → Base image → Models &amp; keys → GitHub &amp; SSH → Workspace rules → (official builds: Usage statistics, Stay in touch) → First sandbox. Each title is centred over a column sized to its step. From Models &amp; keys on, a strip at the foot shows the base downloading → preparing → ready (or failed, with Retry), with Details in a popover.</li>
+<li><strong>Models &amp; keys</strong> shows the sign-ins found on this Mac and the keys grouped as Providers / Gateways / No key, each naming the tools it serves; an OpenRouter key works for pi and OpenCode.</li>
+<li><strong>First sandbox</strong> is an ordinary sandbox: pick Claude Code, pi, OpenCode or Codex (those not usable yet are dimmed, saying what they need), a name, a new empty folder or a project folder, and see the same command for Terminal. Quick try now uses the same path.</li>
+<li><strong>A try is no longer special.</strong> Any sandbox that made its own folder removes that folder on <code>doz rm</code> while it is still empty; the try tag and bar are gone. <code>doz try</code> and Quick try stay.</li>
+<li><strong><code>doz onboard</code></strong> asks in the same order and ends on the First sandbox; new flags <code>--base</code>, <code>--no-base</code>, <code>--key</code>, <code>--key-name</code>, <code>--first</code>.</li>
+<li>Tests: full <code>make test</code> 1145, 0 failures (re-run independently); <code>test-cli-onboarding</code> and <code>test-cli-try</code> green twice each (test-cli-try moved off the unpublished Grok Build onto OpenCode 1); the wizard probe green three times (with a key, without secret entry, with the base forced to fail); <code>recipe-check RECIPES=opencode2</code> on m1b 5/5; <code>make audit</code> and <code>docs-drift-check</code> clean.</li>
+</ul>
+</body></html>
