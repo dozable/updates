@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.8</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.8</h1>
+<h1>doz 0.37.8</h1>
+<p><strong>Small fixes to 0.37: whole, centred thumbnails, and Cmd-click to open a link</strong> (issue #317; the rolling umbrella for 0.37.x). Owner 2026-10-21: &quot;the top is chopped off the terminal thumbnail … it should be centred&quot;, then &quot;yes cmd-click&quot;.</p>
+<ul>
+<li><strong>Thumbnails show the whole screen:</strong> a sleeping session&#x27;s saved screen is drawn at the size it was saved at, so its top is no longer cut off, and every session picture (Home, All sessions, the sidebar&#x27;s peek) is centred in its box.</li>
+<li><strong>Cmd-click opens a link in a web terminal</strong>, in a new tab, as in Terminal.app, iTerm2 and Ghostty; hovering a link says so. A link is the sandbox&#x27;s text, so the page opens only a web address (http or https) to another computer — never one with a login in it, this Mac&#x27;s own addresses or the dashboard — and says when it refuses one. A plain click still goes to the program; Ctrl-click does nothing.</li>
+<li>Tests: full <code>make test</code> 1175, 0 failures; <code>make audit</code> clean (the gate); the owner looked at the thumbnails and asked for Cmd-click on doz-dev.</li>
+</ul>
+</body></html>
