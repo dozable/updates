@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.17</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.17</h1>
+<h1>doz 0.37.17</h1>
+<p><strong>Open a sandbox&#x27;s workspace in the Finder or your editor</strong> (issue #242; loop 627, step 11; backlog 614.B2). Owner 2026-10-11: an &quot;Open workspace&quot; action in the CLI and the dashboard, &quot;in the Finder or an editor/IDE (VS Code, Cursor, Zed, Xcode …)&quot;; 2026-10-24, after looking on doz-dev: &quot;looks great&quot;.</p>
+<ul>
+<li><strong>Open folder</strong>, beside Open in Terminal on a sandbox&#x27;s terminal strip: Show in the Finder, then Open in &lt;editor&gt; for each editor installed on this Mac — the one used last comes first. The Files tab&#x27;s ⋯ on a folder or a file gains the same Open in &lt;editor&gt; items.</li>
+<li><strong><code>doz files open NAME [PATH] --app EDITOR</code></strong> opens the workspace (or a folder or file in it) in that editor; <strong><code>doz files editors</code></strong> lists what is installed. (<code>doz open</code> stays the command that opens a sandbox&#x27;s web port.)</li>
+<li><strong>Which apps:</strong> a known editor that is installed (VS Code, Cursor, Zed, Windsurf, Xcode, Sublime Text, Nova, BBEdit, IntelliJ IDEA, PyCharm, WebStorm, GoLand, TextMate — found by its bundle id and opened by its own path, never by a typed name), or a name in <code>bridges.open_apps</code>.</li>
+<li><strong>What opens:</strong> a folder, or a file that is not a program — source files (<code>.py</code>, <code>.js</code>, <code>.swift</code> …) open in an editor though their default app is still refused (it could run them); an executable, a <code>#!</code> script, a Mac or Linux program and an app or package never open. The workspace rules come first (hidden is &quot;no such file&quot;, locked is refused), and <code>sandbox.open_files</code> off refuses it. The agent&#x27;s own opening is unchanged.</li>
+<li>An isolated sandbox has nothing to open (the button says so); another device&#x27;s browser (<code>doz ui --lan</code>) never sees it.</li>
+<li>Tests: full <code>make test</code> 1239, 0 failures; <code>make audit</code> and <code>docs-drift-check</code> clean.</li>
+</ul>
+</body></html>
