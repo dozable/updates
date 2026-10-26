@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.27</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.27</h1>
+<h1>doz 0.37.27</h1>
+<p><strong>The recipe ingredient audit</strong> (issue #254; loop 627, step 21; backlog 617.B3). Owner 2026-10-13: &quot;A daily audit of all the recipe ingredients and a refresh of the directory with the latest versions&quot;; 2026-10-26: &quot;go&quot;.</p>
+<ul>
+<li><strong><code>make recipe-audit</code>:</strong> every ingredient a published recipe pins, checked against the public registries — read-only, no key, no VM. Each line is <code>ok | changed | behind | gone | unchecked</code> with why: the pin and its integrity (npm, platform packages, release and manifest binaries, a pypi lock line by line), every <code>install.extras</code> download, behind the latest (from <code>profiles/currency.json</code>), the base images&#x27; pinned digests, the Node/Python runtimes and Claude Code&#x27;s native build checksums. Only a 404/410 is <code>gone</code>; a <code>changed</code> or <code>gone</code> pin fails the run (a supply-chain alarm). Output: <code>profiles/audit.json</code> (deterministic, committed) and a Markdown summary.</li>
+<li><strong>The refresh is proposed, never applied:</strong> <code>make recipe-audit PROPOSE=1</code> rewrites a behind recipe&#x27;s pin (version + integrity, verified against a download) and compiles; it never commits, pushes or publishes, and a proposal still has to pass <code>make recipe-check</code> first. Built-in and pypi recipes are not proposed.</li>
+<li><strong>Nightly:</strong> the Recipes workflow runs the audit after the recipe checks and profiles (its summary in the job summary, its JSON an artefact). The token stays read-only; <code>make audit</code> now fails any workflow that asks for write access or pushes / opens a PR.</li>
+<li>First real run (2026-10-26): 0 changed, 0 gone — every published pin is present with its integrity; behind: opencode 1.19.0 → 1.19.4, opencode2 2.0.29 → 2.1.4 (and the built-ins, which install the latest anyway); 8 of 10 base tags have moved past their pinned digests (each still resolves).</li>
+<li>Tests: the full suite (1338, 0 failed) with 31 audit tests run with the network refused; <code>make audit</code>; <code>make docs-drift-check</code>; <code>PROPOSE=1</code> in a scratch worktree (opencode and opencode2 rewritten, compiled, not committed).</li>
+</ul>
+</body></html>
