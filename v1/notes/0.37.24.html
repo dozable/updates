@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.24</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.24</h1>
+<h1>doz 0.37.24</h1>
+<p><strong>New and updated recipes no longer need a doz release</strong> (issue #348; loop 627, step 15; the first half of 617.B11). Owner 2026-10-15: &quot;backlog decoupling the known recipes from the cli build (i think this enables our community builds use-case)&quot;; 2026-10-26: &quot;yes start 15&quot;.</p>
+<ul>
+<li><strong>One signed catalogue:</strong> Dozable&#x27;s recipe data (agents, providers, gateways, known entries, tags, icons) can be published as a catalogue at <code>https://updates.dozable.com/v1/recipes.json</code>, signed with the update key under its own domain-separated message, so a feed signature can never pass as a catalogue&#x27;s or the other way round.</li>
+<li><strong>When it applies:</strong> the host checks at most hourly (a conditional GET; &quot;not found&quot; is normal and quiet) and caches a catalogue that verifies. It takes effect at the host&#x27;s next start, and every <code>doz</code> process reads its recipes once, at start — nothing changes under a running process, and commands use the same recipes as the running host.</li>
+<li><strong>What it may never do:</strong> replace this build&#x27;s Claude Code, pi or Codex; apply in part (a bad signature, a changed file or any failed check ignores the whole catalogue); apply when it needs a newer doz, or was made from older recipes than this build carries (which also blocks going back). Statistics count only agent ids this build knows the Worker accepts.</li>
+<li><strong>The embedded set stays</strong> as the offline fallback and the floor; development builds and guarded runs always use it. <code>doz doctor</code> gains a <code>recipes</code> line.</li>
+<li><strong>Publishing:</strong> <code>make publish-recipes [MIN_DOZ=] [DRY_RUN=1] [PUSH=1]</code> signs with the keychain key. No catalogue is published yet — the first live publish waits for the owner&#x27;s word.</li>
+<li>Tests: 15 new catalogue tests (signing, replay, merging, refusals); <code>make test-recipe-catalogue</code> 24/24 (publish with a throwaway key → a real host fetches → a new process uses it; a changed file is refused and the old catalogue kept); the full suite (1300, 0 failed); <code>make recipe-check RECIPES=grok</code> from a catalogue-provided copy.</li>
+</ul>
+</body></html>
