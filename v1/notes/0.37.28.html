@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.28</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.28</h1>
+<h1>doz 0.37.28</h1>
+<p><strong>OpenCode keys</strong> (issue #265; loop 627, step 23; backlog 618.B2). Owner 2026-10-16: &quot;yes&quot; (OpenCode Console and OpenCode Go keys as Dozable keys); 2026-10-26: &quot;go&quot;.</p>
+<ul>
+<li><strong>One key provider, <code>opencode</code> (&quot;OpenCode&quot;):</strong> the pinned OpenCode 2 release (2.0.29, read from its bundle — <code>probes/656-*/read-bundle.py</code>) uses the SAME <code>OPENCODE_API_KEY</code> for OpenCode Zen&#x27;s paid models (<code>opencode/…</code>) and the OpenCode Go subscription (<code>opencode-go/…</code>). <code>doz account add NAME --provider opencode</code>, <code>--provider opencode</code> on new/try, and the Try&#x27;s and New Sandbox&#x27;s model-source lists offer it for OpenCode 2; the key stays in the Mac&#x27;s keychain (or a source), the sandbox gets a placeholder.</li>
+<li><strong>A key confined to paths:</strong> a key provider may now name the paths its key may go to; the vault refuses its placeholder on any other path of the host, or on a path with a dot segment or an encoded <code>/</code>, <code>.</code> or <code>\</code>, whatever the network allows. OpenCode&#x27;s key goes only to its model paths (Zen and Go, each API shape, the pin&#x27;s and the later <code>/inference</code> bases) and exactly <code>GET /console/api/v2/config</code> (the release reads its organisation&#x27;s config with the key at start — refusing it would show a refusal at every start). A placeholder in <code>x-api-key</code> or <code>x-goog-api-key</code> is swapped where it is.</li>
+<li>The key-less OpenCode Zen free models are unchanged; OpenCode (1) is untouched; no image or bake key moved (<code>RecipePinTests</code>).</li>
+<li>Tests: the full suite (1343, 0 failed); <code>make recipe-check RECIPES=opencode2</code> with fake keys — 6 of 6 sources including the new one (the stand-in saw the key on Go&#x27;s chat and responses paths and the Console read; a leak to another opencode.ai path refused; a Locked try refused nothing); <code>make test-recipe-catalogue</code> 24/24; <code>make test-community-recipes</code> 48/48; <code>make recipe-audit</code> 0 changed, 0 gone.</li>
+</ul>
+</body></html>
