@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.30</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.30</h1>
+<h1>doz 0.37.30</h1>
+<p><strong>tmux 3.8 in every sandbox</strong> (issue #238; loop 627, step 26). Owner 2026-10-26: &quot;go&quot;.</p>
+<ul>
+<li><strong>No base ships 3.8:</strong> the probe read every catalogue base&#x27;s package index. Debian 12 and the images built on it have 3.3a, Ubuntu 24.04 and Alpine 3.20 have 3.4, and eclipse-temurin&#x27;s Ubuntu 26.04 has 3.6a. Only Debian sid and Alpine edge have 3.8.</li>
+<li><strong>Dozable&#x27;s own tmux:</strong> one static aarch64 binary (tmux 3.8, libevent 2.1.13, ncurses 6.6, musl), built with the pinned Zig 0.16.0 from sha256-pinned tarballs by <code>Guest/tmux/build.sh</code>. Three builds gave identical bytes, and <code>make tmux-verify</code> rebuilds it and checks the committed bytes. It is listed in <code>PROVENANCE.md</code>, <code>LICENCES/</code> and the release&#x27;s third-party notices.</li>
+<li><strong>Copied in, never downloaded:</strong> with <code>sessions.tmux</code> on, the tools layer copies it to <code>/usr/local/lib/doz/bin/tmux</code>, but only when its sha256 matches the pin. It is linked as <code>/usr/local/bin/tmux</code> when that name is free. The distro&#x27;s tmux is never touched. It is kept when the setting is turned off, because only a client of the same version can end a running server.</li>
+<li><strong>Sessions:</strong> a new session runs in Dozable&#x27;s tmux. A session already running in the distro&#x27;s older tmux keeps it, and ending a session tries both. The tmux conf did not need any version-specific lines.</li>
+<li><strong>Limits, now in the manual:</strong> OSC 7501 (agent status) does not get through tmux 3.8 unless it is wrapped, and Claude Code sends it unwrapped, so <code>allow-passthrough</code> stays off. The &quot;no tmux&quot; message now points to <code>doz tools NAME --apply</code>. No image or bake key moved.</li>
+<li>Tests: the full suite (1367, 0 failed); <code>ToolsLayerTests</code>; <code>make test-cli-tools</code> (46 checks); <code>make test-cli-tmux38</code> passed on Debian and Alpine (75 checks: the server version, copy by OSC 52 and xclip, <code>xdg-open</code>, the light/dark theme reaching a pane, and an older-tmux session kept).</li>
+</ul>
+</body></html>
