@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.23</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.23</h1>
+<h1>doz 0.37.23</h1>
+<p><strong>A wake is done as soon as the sandbox runs</strong> (issue #345; loop 627, step 32a, following 650). Owner 2026-10-26: &quot;are we still sub-second restore ?&quot;, then &quot;yes move them off the critical path as a follow-up feature&quot;.</p>
+<ul>
+<li><strong>What a wake waits for now:</strong> the guest running, its clock re-synced, its folders re-mounted and the snapshot deleted. The guest fixes, the deckhold refresh, the tools check and the memory balloon run right after, in the background — never failing the wake (a failure is a note).</li>
+<li><strong>Still in order:</strong> Sleep, Hibernate, Shut down, a restore point and quitting the host wait for those steps; a sleep or shutdown that arrives meanwhile skips what is left (the next wake does it again). Opening a session or running a command waits for them too, so a new session always has what they install.</li>
+<li><strong>The boot log</strong> records the background part as one step after the wake.</li>
+<li><strong>Measured:</strong> the host&#x27;s own time after Apple&#x27;s restore fell from ~260 ms to 13–36 ms; the first wake of a batch took 696 ms in the host. Six hibernated sandboxes one at a time: 8.1–9.2 s instead of 12.5 s; three at a time 3.9–4.1 s; all at once 3.2–3.6 s. A wake after a host restart spends ~55–90 ms around the restore — the rest is Apple&#x27;s restore, which grows from ~0.67 s to 1.3–1.4 s as more 2 GiB guests come back into memory (<code>probes/651-i345-WAKE-OFF-CRITICAL-PATH/RESULTS.md</code>).</li>
+<li>Tests: CI green; <code>make test-vm</code> twice (72/72), <code>hardening concurrent</code> (64 wakes at once), <code>make test-vm-upgrade</code>; the lifecycle, persisted-sandbox and boot-log suites locally.</li>
+</ul>
+</body></html>
