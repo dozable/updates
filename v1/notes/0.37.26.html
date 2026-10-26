@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.26</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.26</h1>
+<h1>doz 0.37.26</h1>
+<p><strong>Qualified recipe names</strong> (issue #256; loop 627, step 18; backlog 617.B5). Owner 2026-10-13: &quot;like a Docker image reference&quot;; 2026-10-26: &quot;go&quot;.</p>
+<ul>
+<li><strong>The grammar:</strong> <code>[SOURCE/]VENDOR/PRODUCT[@MAJOR|@VERSION]</code> beside every name that works today (<code>claude</code>, <code>opencode@1</code>, <code>opencode@2.0.29</code> are unchanged). <code>anthropic/claude-code</code> names Dozable&#x27;s recipe; <code>mine/local/mytool</code> one of yours; <code>NAME/vendor/tool</code> a community source&#x27;s. A vendor or source that is not the recipe&#x27;s is refused with the name that does mean it; a directory host (<code>doz.sh/…</code>), a digest or <code>:</code> is refused — directories come later.</li>
+<li><strong>Accepted</strong> wherever a tool is typed: <code>--agent</code>/<code>--image</code>, <code>doz try</code>, <code>doz new</code>/<code>create</code>/<code>up</code>, <code>doz_project.yaml agent:</code>, the dashboard&#x27;s plan, <code>doz search</code>, <code>doz recipe show|check</code>. A stored name never changes.</li>
+<li><strong>Shown:</strong> <code>doz search</code> and <code>doz try</code>&#x27;s list give each tool&#x27;s full name; <code>doz recipe show</code>, <code>--dry-run</code> (<code>recipe: dozable/anthropic/claude-code@2.1.227</code>), the Guide&#x27;s facts and Quick try&#x27;s details (&quot;Full name&quot;) say it; a sandbox records the full reference it was made from (display only).</li>
+<li>The vendor comes from each recipe&#x27;s existing <code>VENDOR/PRODUCT</code> path: no recipe data, schema or bake key changed (<code>RecipePinTests</code> green). A family&#x27;s majors share one vendor (validated). <code>doz recipe new</code> writes the vendor <code>local</code>.</li>
+<li>Tests: the full suite (1337, 0 failed); new <code>QualifiedNameTests</code> and <code>QualifiedChoiceTests</code>; <code>make test-recipe-catalogue</code> 24/24; <code>make test-community-recipes</code> 48/48; the Quick try&#x27;s full name in headless Chrome at 1440/390 px, light and dark.</li>
+</ul>
+</body></html>
