@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.29</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.29</h1>
+<h1>doz 0.37.29</h1>
+<p><strong>Dotfiles in every sandbox</strong> (issue #284; loop 627, step 25). Owner 2026-10-26: &quot;go&quot;.</p>
+<ul>
+<li><strong>One setting, a pin per sandbox:</strong> <code>sandbox.dotfiles</code> takes a git repository&#x27;s https URL (no user, token, <code>?</code> or <code>#</code>) or a folder on the Mac that is a git repository; empty (the default) means none. A sandbox can have its own: <code>--dotfiles URL|PATH|none</code> on create/new/try/up, or <code>dotfiles:</code> in <code>doz_project.yaml</code>. The commit is recorded with the sandbox; changing the setting moves no sandbox, <code>doz dotfiles NAME --update</code> does.</li>
+<li><strong>Fetched on the Mac, never in the guest:</strong> the host fetches with the Mac&#x27;s own git (no prompts) into <code>&lt;store&gt;/dotfiles/</code>, and the files go in as an archive on an exec&#x27;s input. No guest network and no credential is involved, and it works in a VM a restarted host adopted.</li>
+<li><strong>Applied as the image&#x27;s user, once per commit:</strong> at the first start and in a wake&#x27;s background steps. The first of the usual install-script names runs (5-minute limit, its last lines in the boot log). With no script, the repository&#x27;s top-level dot entries are linked into the home. An existing file is never overwritten, except a byte-identical copy of the stock <code>/etc/skel</code> file, which is kept beside as <code>NAME.doz-stock</code>. Dozable&#x27;s own paths (<code>.claude*</code>, <code>.codex</code>, <code>.pi</code>, the agent launchers, every recipe&#x27;s state folders) are never touched.</li>
+<li><strong>Trust like community recipes:</strong> the CLI asks once per repository and commit, at create and at <code>--update</code>. With no terminal it refuses (exit 5) and names <code>doz dotfiles trust</code>. The dashboard shows the repository, its commit and what will run in New Sandbox&#x27;s review (https only; a Mac folder is never named by a page).</li>
+<li><strong>Surfaces:</strong> <code>doz dotfiles NAME [--update] [--json]</code>, <code>doz dotfiles trust</code>, the Settings row, the sandbox Home&#x27;s Folder facts, the agent&#x27;s facts line, the plan, doctor, and Resources&#x27; <code>cache:dotfiles</code>. The manual&#x27;s new page is 31, &quot;Dotfiles&quot;. No image or bake key moved (<code>RecipePinTests</code>).</li>
+<li>Tests: the full suite (1365, 0 failed); <code>make test-cli-dotfiles</code> all pass twice (55 checks, local scratch repositories only); the dashboard probe at 1440/390, light and dark.</li>
+</ul>
+</body></html>
