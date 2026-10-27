@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.33</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.33</h1>
+<h1>doz 0.37.33</h1>
+<p><strong>Production sound</strong> (issue #217; loop 627, step 27). Owner 2026-10-27: &quot;ship 667&quot;.</p>
+<ul>
+<li><strong>A setting per sandbox:</strong> <code>sandbox.audio</code> = off (the default), speakers or on, chosen at create (<code>doz create --sound</code>, <code>--audio</code> still means on, <code>audio:</code> in doz_project.yaml, New sandbox › Bridges › Sound). Afterwards a sandbox moves only between speakers and on. It is shown on the Home, the header chip, the inspector, <code>doz doctor</code> and doz-sound.</li>
+<li><strong>The microphone, only once macOS has said yes:</strong> a sandbox&#x27;s VM gets the Mac&#x27;s microphone only when macOS has already allowed it; until then it records silence and Virtualization never asks. That removes 604&#x27;s two faults: the VM stopping while macOS&#x27;s question was open, and a recording stuck after Allow. The permission check lives in <code>Microphone.swift</code>, the one file allowed to use AVFoundation, behind a test seam (<code>DOZ_TEST_MICROPHONE</code>).</li>
+<li><strong>When doz asks:</strong> <code>sandbox.microphone_ask</code> = <code>first_recording</code> (the default) or <code>first_start</code>. At first recording, a light watch inside the sandbox notices a capture stream opening and the host asks macOS about 0.8 s later. That recording stays silent, and doz says so in the sandbox&#x27;s terminals, the dashboard, doz-sound and its Home: Shut Down and Start gives it the Mac&#x27;s microphone.</li>
+<li><strong>Fixed: a wake with a different microphone source.</strong> The source is part of a VM&#x27;s saved state, so a restore with another one failed and the sandbox cold-booted. It is now recorded with the sandbox and every restore keeps it; a new answer from macOS applies at the next cold boot.</li>
+<li><strong>The sound kernel, built from source:</strong> <code>Guest/sound-kernel/</code> holds the recipe (kata 6.18.15-186 plus the ALSA and virtio-snd options), its config, kata&#x27;s patch and <code>PROVENANCE.md</code> with the written source offer. <code>make sound-kernel</code> builds it twice in a throwaway VM and checks the bytes against the pin (<code>vmlinux-6.18.15-186-sound2</code>, sha256 <code>8d71cc61…</code>); a CI job on the Dozable runner does the same and publishes it (green twice, about 10 minutes). Public builds still carry no kernel, so sound stays off there for now.</li>
+<li><strong>Re-measured:</strong> 604&#x27;s stream stall after hibernate or wake no longer happens (three runs), so it has no fix. The ticks and leading silence come from the Mac&#x27;s input path, not the guest.</li>
+<li>Tests: the full suite (1380, 0 failed); <code>make audit</code>; <code>make docs-drift-check</code>; the VM proof (playback, a recording through the seamed microphone, hibernate → restore) green three times; the first-recording proof green twice; the microphone source across a restore both ways.</li>
+</ul>
+</body></html>
