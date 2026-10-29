@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.34</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.34</h1>
+<h1>doz 0.37.34</h1>
+<p><strong>Settings per recipe</strong> (issue #360; loop 627, step 20 — the design is 659&#x27;s). Owner 2026-10-30: &quot;ship 659 with 669&quot;.</p>
+<ul>
+<li><strong>A recipe&#x27;s settings are its own:</strong> every recipe&#x27;s settings are generated as <code>[recipes.VENDOR.PRODUCT]</code> (version, approvals, memory_mib, network, plus what a recipe declares, such as Codex&#x27;s <code>keep_alive</code>). The old names (<code>images.claude_code_version</code>, <code>claude.permissions</code>, <code>[images.&lt;agent&gt;]</code>) are still read, and the first write moves them, keeping a one-off <code>doz.toml.0.37.bak</code>. A file that does not parse is never touched. A fresh <code>doz config init</code> lists 65 settings.</li>
+<li><strong>One precedence for everything:</strong> flag › env › sandbox › project › Mac › default (a recipe&#x27;s own, or Dozable&#x27;s), and every value says where it came from. <code>--approvals skip|ask</code> on new, create, up and try, <code>approvals:</code> in doz_project.yaml, <code>doz config set --sandbox NAME</code>; a sandbox records the values it was made with.</li>
+<li><strong><code>doz config</code>:</strong> <code>show</code> prints Dozable&#x27;s own settings and &quot;Recipes in use … · installed …&quot;; <code>--agent</code>, <code>--sandbox</code>, <code>--project DIR</code> and <code>--all</code>; <code>set</code>/<code>unset</code> say which place they wrote.</li>
+<li><strong>Recipes by state:</strong> <code>doz recipe ls</code> has a STATE column (available, installed, in use) and <code>--installed</code>; <code>doz recipe uninstall ID</code> removes a recipe&#x27;s baked images, refused while a sandbox runs it, keeping its settings unless <code>--forget-settings</code>.</li>
+<li><strong>The subject:</strong> a recipe may name what its agent is (pi: &quot;coding harness&quot;, Fabric: &quot;agentic tool&quot;); otherwise &quot;agent&quot;. It sits where an older doz already reads it, so older versions still take the catalogue.</li>
+<li><strong>The dashboard:</strong> a <strong>Recipes</strong> group in the sidebar — <strong>Installed</strong> (in use and installed, each recipe&#x27;s page with its settings, baked images, sandboxes and Uninstall), <strong>Browse</strong> (the whole catalogue, searched) and <strong>Quick try</strong>. <strong>Settings</strong> is laid out like VS Code&#x27;s: a search across the top, the sections on the left when the page is wide enough, each setting a block with its control under it and the ones you changed marked. <code>defaults.permissions</code> is a matrix of Locked · Standard · Open with Custom for the checklist, and its switches are now only the shared ones (they used to list every recipe&#x27;s own). A sandbox&#x27;s Config tab shows its own values beside the Mac&#x27;s, with Follow the Mac.</li>
+<li><strong>The style guide</strong> has every setting control in one section (&quot;Setting controls — every pattern&quot;); the manual uses the decided words and <code>15-settings-reference.md</code> is generated per recipe.</li>
+<li>Tests: the full suite (1407, 0 failed); the dashboard&#x27;s 299 after the later changes; <code>make audit</code>; <code>make docs-drift-check</code>; headless-Chrome probes for Recipes, Browse, Settings and the matrix (1440, 900 and 390 px, light and dark). <code>make test-cli</code> was not run (it needs the VM host).</li>
+</ul>
+</body></html>
