@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.36</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.36</h1>
+<h1>doz 0.37.36</h1>
+<p><strong>Sign in from the Open button</strong> (issue #261; loop 627, step 24 — backlog 618.B1). Owner 2026-10-30: &quot;ship 660 and 666&quot;.</p>
+<ul>
+<li><strong>Open lands signed in:</strong> a recipe&#x27;s web port may declare a sign-in command (ports@1 <code>sign_in</code>, e.g. OpenCode 2&#x27;s <code>opencode pair</code>). Open — the dashboard&#x27;s button and <code>doz open NAME [PORT]</code> — runs it in the sandbox as the session&#x27;s user, takes the one-use link it prints, and opens its path at this Mac&#x27;s forward, so the browser is signed in even when the Mac&#x27;s port moved. A failure says why and opens the plain page.</li>
+<li><strong>The link never leaves the host:</strong> opened through LaunchServices; no answer, note, log line, event, error or store file carries it. The dashboard&#x27;s route is typed, CSRF-checked and Mac-only; the page never sees the link.</li>
+<li><code>sign_in</code> is validated (argv starting with the recipe&#x27;s own program, never a shell; a loopback link to that port; 1–15 s); <code>make recipe-check</code> checks it. The manual&#x27;s web ports page, RECIPE-FORMAT and the CLI reference say how.</li>
+<li>Tests: the branch&#x27;s full suite and a VM proof (28/28: signed in through the CLI and the dashboard, at a moved port too; the token in none of 75 files under the scratch store, nor any output); after merging forward, the targeted suites and CI&#x27;s full run.</li>
+</ul>
+</body></html>
