@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.35</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.35</h1>
+<h1>doz 0.37.35</h1>
+<p><strong>Claude Code with other models, including local ones</strong> (issue #283; loop 627, step 22 — backlog 618.B4). Owner 2026-10-30: &quot;ship 660 and 666&quot;.</p>
+<ul>
+<li><strong>Three places for Claude Code&#x27;s model:</strong> Anthropic (unchanged — its own accounts and model), a gateway&#x27;s Anthropic endpoint (OpenRouter: the key&#x27;s placeholder in <code>ANTHROPIC_AUTH_TOKEN</code>, swapped by the proxy, never in the guest), and <strong>a model server on this Mac</strong> (Ollama, LM Studio, oMLX — by port, no key, a model named).</li>
+<li><strong>The Mac&#x27;s localhost, one port per sandbox:</strong> the proxy routes <code>mac.dozable.internal:PORT</code> to <code>127.0.0.1:PORT</code> only for the port the sandbox was made with, and refuses every other way to this Mac&#x27;s loopback for every sandbox, whatever its policy — an IPv4-mapped IPv6 loopback (<code>::ffff:127.x.x.x</code>) included.</li>
+<li><strong>Surfaces:</strong> <code>doz try/new/create/up --provider local --local-port N</code>, <code>local_port:</code> in doz_project.yaml, <code>doz models --provider local</code>, a doctor line that says whether something answers on each sandbox&#x27;s port; the dashboard&#x27;s Try setup, New Sandbox, the sandbox&#x27;s Model chip and network note, Accounts &amp; keys. Bake keys do not move.</li>
+<li>Tests: the branch&#x27;s full suite (1379) and VM proof on Debian and Alpine; after merging 0.37.32–0.37.34 forward, the targeted suites and CI&#x27;s full run.</li>
+</ul>
+</body></html>
