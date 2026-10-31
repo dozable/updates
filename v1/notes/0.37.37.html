@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.37</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.37</h1>
+<h1>doz 0.37.37</h1>
+<p><strong>doz.sh, the recipe directory</strong> (issue #257; loop 627, step 17 — backlog 617.B6). Owner 2026-10-30: &quot;1. Pages ; 2. as you recommend&quot;, then &quot;yes go for all of this&quot;.</p>
+<ul>
+<li><strong>The catalogue&#x27;s new home:</strong> doz looks for its signed recipe catalogue at <code>https://doz.sh/v1/recipes.json</code> (a GitHub Pages site behind Cloudflare), still signed with Dozable&#x27;s update key and checked exactly as before. Releases already out keep asking the old address, where nothing is published, and carry on with the recipes they shipped with.</li>
+<li><strong>Names in the directory:</strong> <code>doz.sh/VENDOR/PRODUCT[@MAJOR|@VERSION]</code> means the same as <code>VENDOR/PRODUCT</code> everywhere a recipe is named (<code>doz try doz.sh/anthropic/claude-code</code>). Nothing is fetched to resolve a name; any other host is refused with what to do instead, and so is a digest after <code>@</code>.</li>
+<li><strong>Publishing:</strong> <code>make publish-recipes</code> writes the site — the catalogue, a plain <code>v1/index.json</code> for the website, the CNAME — and refuses the update feed&#x27;s folder, a site holding the feed, or a CNAME naming another host. With <code>PUSH=1</code> it waits for the new serial to be live.</li>
+<li><strong>Docs:</strong> <code>docs/RECIPE-SIGNING.md</code> explains why the catalogue is signed, how the key is used, that it is signed and not encrypted, and why the update key is reused; the manual&#x27;s recipe pages and RECIPE-FORMAT say how to name a tool in doz.sh.</li>
+<li>Tests: the catalogue end to end (32/32), community recipes (48/48 — three checks fixed for 669&#x27;s STATE column), the naming and catalogue unit tests (77), and CI&#x27;s full run.</li>
+</ul>
+</body></html>
