@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.39</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.39</h1>
+<h1>doz 0.37.39</h1>
+<p><strong>The engineering guide, split</strong> (issue #374). Owner 2026-11-02: &quot;is nearly 3K lines long&quot; → &quot;feature it next&quot;, then &quot;ship both&quot;.</p>
+<ul>
+<li><strong>CLAUDE.md is short again:</strong> 443 lines instead of 2,882 (~80K tokens, loaded whole by every session working in the repository). It keeps what the app is, its dependencies, a one-row-per-area map of the code, the rules that cost a bug anywhere, how to verify a change and test safety — and an index of the engineering docs.</li>
+<li><strong>Each area&#x27;s detail moved word for word</strong> into 16 pages under <code>docs/engineering/</code> (engine, network, images and bases, GitHub and access, Codex, recipes, web, LAN, terminal, onboarding, sessions, updates and release, workspace rules, tools and dotfiles, files, sound). Every line of the old file is in exactly one place (checked line by line).</li>
+<li><strong>It stays short:</strong> <code>make docs-drift-check</code> fails when CLAUDE.md passes 500 lines, a page is missing from the index, or a link does not resolve.</li>
+<li>No change to doz itself. Tests: the docs checks, the audit, and CI&#x27;s full run.</li>
+</ul>
+</body></html>
