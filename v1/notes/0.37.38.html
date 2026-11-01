@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.38</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.38</h1>
+<h1>doz 0.37.38</h1>
+<p><strong>0.37.x fixes</strong> (issue #373, the rolling umbrella for small fixes to 0.37). Owner 2026-11-02: &quot;make the update period daily (not hourly)&quot;, then &quot;ship both&quot;.</p>
+<ul>
+<li><strong>The recipe catalogue check is daily, not hourly:</strong> while its host runs, doz looks at <code>doz.sh</code> for a newer signed recipe catalogue at most once a day, and each community catalogue you added the same. The last look is remembered, so a host restart does not ask again early, and the host still checks hourly whether a look is due (a host started near the end of the day does not wait almost two). The signing explainer and the manual&#x27;s recipe pages say so.</li>
+<li>Tests: the catalogue unit tests (16, now with a look 23 hours later still not due), the community recipe tests (18), the catalogue end to end (32/32), the docs checks, and CI&#x27;s full run.</li>
+</ul>
+</body></html>
