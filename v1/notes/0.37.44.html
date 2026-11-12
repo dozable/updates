@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.44</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.44</h1>
+<h1>doz 0.37.44</h1>
+<p><strong>Drive a session from a script, and a clear reason when the host cannot read your Claude login</strong> (issue #390). Owner 2026-11-12: &quot;ship it to canary then prmote&quot;. Asked for by an agent that drives teams of Claude Code sessions in Dozable sandboxes.</p>
+<ul>
+<li><strong><code>doz sessions send SANDBOX SESSION</code></strong> types into a session from a script: <code>--text</code> (or <code>--text -</code> for stdin), then <code>--keys</code> (enter, tab, esc, arrows, ctrl-letter, f1–f12…), then <code>--enter</code>; <code>--paste</code> wraps the text in bracketed paste. It returns only once the session&#x27;s holder has every byte, wakes a sleeping or hibernated sandbox first (<code>--no-wake</code> to refuse), and <code>--then-screen[=MS]</code> returns the screen after it in the same call. A missing or ended session exits 2; an off sandbox, 3.</li>
+<li><strong><code>doz sessions screen SANDBOX SESSION</code></strong> prints the screen as it is now — the rows only; <code>--json</code> adds the cursor, the size, which screen (primary or alternate) and the session&#x27;s status. A sleeping sandbox gives its saved screen and says it is not live, waking nothing; <code>--wake</code> wakes it and reads it live.</li>
+<li>A send into a hibernated sandbox wakes it and the text arrives — checked 5 times out of 5 — which a piped <code>doz attach</code> could not promise.</li>
+<li><strong>A host started over ssh says why it cannot read your Claude login.</strong> Over ssh the login keychain is locked, so a host started there gave every sandbox it made an &quot;unreadable&quot; account while <code>doz doctor</code> (run from the Mac&#x27;s own session) said the login was fine. Now the host records its session: starting one there warns first; <code>doz account ls</code>, <code>account show mac</code>, <code>doz ls</code> and doctor&#x27;s new &quot;host login&quot; check name that host (pid, start time) and say to run <code>doz host restart</code> from a logged-in session; <code>doz image bake</code> stops a host it had to start there once nothing runs.</li>
+<li>Tests: <code>make test-cli-sessionsend</code> (20 checks, twice in a row), <code>make test-cli-keychainlocked</code> (8 checks), new unit suites, <code>make test</code> 1527 run / 0 failures, the audit and the docs checks. Still to come: sessions on the Mac itself (<code>@mac</code>).</li>
+</ul>
+</body></html>
