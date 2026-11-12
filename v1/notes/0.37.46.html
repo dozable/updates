@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.37.46</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.37.46</h1>
+<h1>doz 0.37.46</h1>
+<p><strong>This Mac in the dashboard</strong> (issue #395). Owner 2026-11-12: &quot;go, start the dashboard feature&quot;, then &quot;ship to canary and install on m1max so i can try it&quot;.</p>
+<ul>
+<li><strong>A &quot;This Mac&quot; page</strong> in <code>doz ui</code> (and its sidebar entry, marked &quot;no isolation&quot;) shows the sessions running on this Mac (<code>@mac</code>): a tile per session with its live picture, its folder, a permanent <strong>No isolation</strong> label and, for a session whose own command asked for it, <strong>permissions bypassed</strong>. A callout says what that means: they run as you — your files, Keychain and network — with no sandbox and no proxy.</li>
+<li><strong>Watch first:</strong> opening a session shows it read-only (&quot;watching — what you type does not reach it&quot;); <strong>Type into it</strong> switches to typing. <strong>Restart…</strong> and <strong>End…</strong> ask before they act. New sessions are started from a terminal (<code>doz run @mac</code>), never from the page.</li>
+<li><strong>All sessions</strong> ends with a This Mac section linking to the page.</li>
+<li><strong>Your other devices see none of it by default:</strong> <code>doz ui --lan</code> / <code>doz serve</code> refuse host sessions unless the new setting <code>serve.mac_sessions</code> allows them — <code>watch</code> (list and watch) or <code>interactive</code> (also type, end, restart); default <code>off</code>, set in the settings file or by a flag, never from the page. A sandbox can never reach these routes.</li>
+<li><strong>A sandbox that stopped answering</strong> is shown as &quot;not answering&quot; in All sandboxes, with a callout on its page.</li>
+<li><strong><code>doz sessions restart</code> no longer ends a Claude Code session that never had a turn:</strong> it continues the conversation (<code>--continue</code>) only when the folder has one, and otherwise starts fresh and says so.</li>
+<li>Tests: <code>make test-cli-host</code> (with a fake claude for the restart cases), new web suites (routes, tickets, the exposure classes, actions, the unresponsive sandbox), <code>make test</code> 1572 / 0, css-lint, the audit and the docs checks; screenshots of the page in a headless Chrome on a scratch store.</li>
+</ul>
+</body></html>
