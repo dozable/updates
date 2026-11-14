@@ -3,7 +3,7 @@
     {
       "archive": "https://github.com/dozable/dozable/releases/download/v0.40.0/doz-0.40.0-macos-arm64.tar.gz",
       "build": 62,
-      "channel": "canary",
+      "channel": "stable",
       "date": "2026-11-14",
       "notes": "https://updates.dozable.com/v1/notes/0.40.0.html",
       "sha256": "97d4ba875414a19ba5321f74851cd72c48d39b4681fe6ec72e4ccdf837958c13",
