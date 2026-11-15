@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.40.2</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.40.2</h1>
+<h1>doz 0.40.2</h1>
+<p><strong>Fixes for sessions on this Mac</strong> (issue #407; step 1 of the session-hub program, #405). Owner 2026-11-16: &quot;i want this work done with a /loop-prep using loop-next ; lets go&quot;.</p>
+<ul>
+<li><strong><code>swift test</code> works in a fenced <code>--xcode</code> session</strong> (dozable issue 40): the test runner (<code>swift-test</code>, and <code>swift-run</code>) and Swift Build&#x27;s own temporary folders were not among the build tools the fence lets write a temp folder, so the build manifest could not be written. Both <code>swift test --scratch-path &quot;$DOZ_DERIVED&quot;</code> and the default <code>.build</code> now pass.</li>
+<li><strong><code>doz sessions restart</code> resumes the right Claude conversation:</strong> a session started as <code>claude --session-id ID …</code> comes back with <code>--resume ID</code> (it used to add <code>--continue</code>, which Claude refuses beside <code>--session-id</code>), and a Claude session started without an id resumes the conversation it actually held, not just the folder&#x27;s newest.</li>
+<li><strong>A restart whose program dies at once says so:</strong> &quot;exited at once (exit N)&quot; with the program&#x27;s own last lines; <code>doz sessions screen</code> shows that run&#x27;s last screen, and an ended session keeps its last screen.</li>
+<li><strong>A foreground <code>doz run @mac</code> returns its program&#x27;s exit code</strong>, also when the program ends before doz attaches (that case used to return 2 whatever the program returned).</li>
+<li><strong>A Claude login made over ssh is seen:</strong> doz also reads <code>~/.claude/.credentials.json</code> (read-only, never the refresh token) and uses whichever of it and the Keychain&#x27;s login expires later; <code>doz account ls</code> and <code>doz doctor</code> say where the login came from.</li>
+<li><strong>New setting <code>mac.fence_loopback_listen</code></strong> (default off): lets a fenced program listen on any port, for test servers that pick one (<code>listen(0)</code>). Off by default because macOS cannot hold such a listener to this Mac alone — a server it starts on all addresses is reachable from your network; <code>--local-port</code> has the same limit, now stated in the manual.</li>
+<li>Tests: <code>make test</code> 1690 / 0; <code>make test-cli-fence</code>, <code>make test-cli-host</code>, <code>make deckhold-mac-check</code>, <code>make deckhold-verify</code> (the guest holder&#x27;s bytes unchanged) all pass.</li>
+</ul>
+</body></html>
