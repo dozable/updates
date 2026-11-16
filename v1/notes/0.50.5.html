@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.5</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.5</h1>
+<h1>doz 0.50.5</h1>
+<p><strong>Start the doz daemon when you log in</strong> (issue #425; step 8b of the session access program, #405). The owner approved one per-user login agent as an exception to the old &quot;no launchd agent&quot; rule; the rule this release keeps is that nothing is written without your say.</p>
+<ul>
+<li><strong><code>doz daemon login-item on|off|status</code></strong>, and the setting <code>daemon.login_item</code> (<code>ask</code>, <code>on</code>, <code>off</code>; default <code>ask</code>). <code>on</code> writes ONE login item for the store, <code>~/Library/LaunchAgents/com.dozable.daemon.&lt;8 hex&gt;.plist</code>. It runs a short doz command that starts the daemon the usual way and exits — launchd never runs the daemon itself, and the item has no KeepAlive. It names doz by a stable path, so it runs the current doz after an upgrade.</li>
+<li><strong>Nothing is written unless you say so.</strong> Upgrading writes nothing; the first command in a terminal after the upgrade says once how to turn it on. New installs are asked in onboarding (<code>--start-at-login on|off</code>). The setting is changed on the Mac only — the dashboard shows it and cannot set it.</li>
+<li><strong><code>doz daemon stop</code> now holds:</strong> while the daemon is always on, it stays stopped until the next doz command or your next login.</li>
+<li><strong>From ssh (a locked login keychain):</strong> a command that needs a daemon starts it in your desktop session through the login item, so it can read the keychain; without a login item, <code>doz daemon restart</code> is refused when it would replace a daemon that can.</li>
+<li><strong>Shown:</strong> <code>doz daemon status</code> (also with no daemon running: <code>--json</code> <code>loginItem</code>, <code>held</code>, <code>alwaysOn</code>, <code>store</code>) and <code>doz doctor</code>&#x27;s &quot;login item&quot; row — present, loaded, switched off in System Settings, or out of date.</li>
+<li><strong>Removed by</strong> <code>doz daemon login-item off</code>, <code>doz uninstall</code> and <code>doz nuke</code> — only this store&#x27;s item. Run <code>doz uninstall</code> before <code>brew uninstall</code>.</li>
+<li>When a future Dozable menu bar app holds the login item, doz removes its own and does not add it again.</li>
+<li>Known limits: the setting is one for all stores while the item is per store (another store can show &quot;on, not installed&quot;); the doz that runs <code>login-item on</code> is the one the item points to.</li>
+<li>Tests: <code>make test</code> 1801 / 0; the new <code>make test-cli-daemon</code> (45 rows, a fake launchctl and a scratch agents folder — no test can touch the real ones); <code>make test-vm-upgrade</code> passes, with a check that an upgrade leaves the agents folder empty; <code>make test-cli-keychainlocked</code>, <code>-alwayson</code>, <code>-host</code>, <code>-fence</code>, <code>-onboarding</code> pass (the implementing agent&#x27;s runs); <code>make test-cli</code> shows only the 2 failures that predate this release. Checked on a real Mac (m1max2) after the canary release.</li>
+</ul>
+</body></html>
