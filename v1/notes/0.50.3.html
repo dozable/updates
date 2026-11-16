@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.3</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.3</h1>
+<h1>doz 0.50.3</h1>
+<p><strong>A secret Dozable holds for a session: <code>--secret</code></strong> (issue #420; step 6 of the session access program, #405). A token a session needs for a service on your Mac or your Tailscale network no longer has to be a real value inside the session.</p>
+<ul>
+<li><strong><code>--secret VAR,src=PATH,to=HOST:PORT[,header=NAME][,file=FILEVAR]</code></strong> (repeatable, up to 4) on <code>doz create</code>, <code>doz run NAME</code> and <code>doz run @mac</code> (fenced). The value is read from the file and kept by Dozable; the session gets a placeholder in <code>VAR</code> and, with <code>file=</code>, a file holding the same placeholder with its path in <code>FILEVAR</code>. The proxy swaps the placeholder for the value only on requests to that exact host and port (default header: <code>Authorization: Bearer</code>).</li>
+<li><strong>The source file</strong> must be yours alone (no group or other access), a regular file, at most 1800 bytes of printable text, and outside anything the session can read. The value is never taken from <code>-e</code> or the command line; <code>-e VAR=…</code> for a secret&#x27;s variable is refused.</li>
+<li><strong>It does not widen reach:</strong> the destination must already be open (<code>--host-port PORT</code> for <code>host.dozable.internal:PORT</code>, or a <code>site:HOST:PORT</code> permission).</li>
+<li><strong>Over plain HTTP</strong> a secret travels only to this Mac&#x27;s ports (<code>host.dozable.internal</code>) or a Tailscale address (100.64.0.0/10, every address the name resolves to, and only while this Mac is itself on a Tailscale network). Setting <code>network.placeholders_plain_http</code> (on by default) turns that off. Every other placeholder is still never sent over plain HTTP.</li>
+<li><strong>Kept across a daemon restart</strong> in a keychain item of its own (when the login keychain is locked: in memory only, and the launch says so). Removed when a sandbox is shut down, reset, renamed or removed, and when a fenced session&#x27;s record goes. A duplicate never copies a secret.</li>
+<li><strong>Shown</strong> on the launch line and in <code>doz net show</code> (<code>--json</code> <code>secrets</code>) by variable, destination and a 12-character fingerprint — never the value.</li>
+<li>Limits to know: a placeholder (never the secret) sent inside an encrypted tunnel to another site passes unseen, as every placeholder does; &quot;this Mac is on Tailscale&quot; cannot tell Tailscale from a carrier network when both are present; <code>doz run @mac --dry-run</code> does not list secrets yet.</li>
+<li>Tests: <code>make test</code> 1762 / 0; <code>make test-cli-fence</code> passes with the new rows (the value absent from the store, the log and the session; swapped on the route, refused on another port, the alias and another site; the setting off; a Tailscale address through the test seam; the refusals; the record across a daemon stop). <code>make test-cli-host</code> is the implementing agent&#x27;s run. No VM test: sandboxes rely on the shared proxy code and the unit tests.</li>
+</ul>
+</body></html>
