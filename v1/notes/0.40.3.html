@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.40.3</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.40.3</h1>
+<h1>doz 0.40.3</h1>
+<p><strong>The New session wizard helps with fenced Swift and Xcode builds</strong> (issue #409; step 2 of the session-hub program, #405). From the owner&#x27;s questions relayed on 2026-11-16: should the fenced-build case be pre-configured, and should the wizard say when a build should be unfenced.</p>
+<ul>
+<li><strong>&quot;Inside the session&quot;</strong> in the wizard&#x27;s Swift/Xcode case: the build and test commands that work in that fenced session — <code>swift build</code> / <code>swift test</code> with <code>--disable-sandbox --cache-path &quot;$XDG_CACHE_HOME/swiftpm&quot; --scratch-path &quot;$DOZ_DERIVED&quot;</code>, and <code>xcodebuild … -derivedDataPath &quot;$DOZ_DERIVED&quot;</code> — each with Copy. Nothing is run from the page.</li>
+<li><strong>&quot;When to go unfenced&quot;</strong>: signing and notarisation (the Signing &amp; notarisation case), Simulator UI tests (the Simulator toggle — a guard rail, not a boundary), tools that need your Keychain (the Apple identity toggle), what unfenced means, and the setting for a test server that picks its own port (<code>mac.fence_loopback_listen</code>, off by default) with its cost.</li>
+<li><strong><code>doz run @mac --xcode --dry-run</code> prints the same commands</strong>, and a fenced Claude Code session with <code>--xcode</code> is told them, so it uses the flags without being asked.</li>
+<li>The manual gains &quot;Building Swift and Xcode projects in a fenced session&quot;.</li>
+<li>One source for the commands: the test suite&#x27;s fenced <code>swift build</code> / <code>swift test</code> / <code>xcodebuild</code> checks run exactly the lines the wizard shows.</li>
+<li>Tests: <code>make test</code> 1691 / 0; <code>make test-cli-fence</code> and <code>make test-cli-host</code> pass.</li>
+</ul>
+</body></html>
