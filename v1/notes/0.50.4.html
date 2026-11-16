@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.4</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.4</h1>
+<h1>doz 0.50.4</h1>
+<p><strong>The doz daemon stays running</strong> (issue #423; step 8a of the session access program, #405 — the first of four releases for the always-on daemon and kept sessions). Owner, 2026-11-16: &quot;yes always on (a new setting - default on). change timeout default to 0 (never times out)&quot;.</p>
+<ul>
+<li><strong><code>daemon.always_on</code>, on by default:</strong> the daemon no longer exits when nothing runs. It is read by the running daemon, so <code>doz config set daemon.always_on off</code> takes effect in about a second.</li>
+<li><strong><code>daemon.idle_timeout_minutes</code> now defaults to 0 (never)</strong> and is used only when always-on is off. So for the old behaviour set BOTH: <code>doz config set daemon.always_on off</code> and <code>doz config set daemon.idle_timeout_minutes 5</code>. A settings file that already says <code>idle_timeout_minutes = 5</code> no longer applies while always-on is on; <code>doz config show</code> says so.</li>
+<li><strong>A daemon that never idles out still picks up a new build:</strong> when its program is replaced (an upgrade) and nothing is running, it starts a new daemon and exits — no command needed. The new one is started from a stable path (a Homebrew keg&#x27;s <code>opt</code> link), so a <code>brew cleanup</code> that removed the old keg does not matter. From 0.50.3 the old daemon cannot do this: it exits after the upgrade and the next command starts 0.50.4.</li>
+<li><strong>A daemon started where the login keychain is locked (over ssh) is never always on:</strong> it exits after at most 5 idle minutes, so a later command from the desktop gets one that can read the keychain.</li>
+<li><strong>Shown:</strong> <code>doz daemon status</code> (and <code>--json</code> <code>alwaysOn</code>) and <code>doz doctor</code>.</li>
+<li>Not in this release: starting at login (the next release — nothing is written to ~/Library/LaunchAgents here), the login keep-alive, kept sessions.</li>
+<li>Also changed: with fenced sessions running, a newer recipe catalogue now hands the daemon over to a new one (before, it shut down and left their proxies unserved until the next command); a <code>--foreground</code> daemon never restarts in place, it exits.</li>
+<li>Tests: <code>make test</code> 1777 / 0; <code>make test-vm-upgrade</code> passes with a new part (0.50.3&#x27;s idle daemon, this build installed by rename, then this build&#x27;s always-on daemon restarting in place in about 4 s, one daemon throughout); the new <code>make test-cli-alwayson</code>, <code>make test-cli-host</code>, <code>make test-cli-fence</code>, <code>make test-cli-keychainlocked</code> pass; <code>make test-cli</code> 935 pass with the 2 failures that predate this release (backlog 683.B4, 689.B2).</li>
+</ul>
+</body></html>
