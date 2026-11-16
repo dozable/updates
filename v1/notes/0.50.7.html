@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.7</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.7</h1>
+<h1>doz 0.50.7</h1>
+<p><strong>A menu bar app for the doz daemon: Dozable.app</strong> (issue #428; step 9a of the session access program, #405). The owner&#x27;s scope for the first app: the daemon&#x27;s state, Start, Stop, Restart, open the dashboard — no chat in it. Starting at login from the app is the next release.</p>
+<ul>
+<li><strong><code>doz app install</code></strong> puts Dozable.app in Applications (your own Applications folder when that one is not writable); <code>doz app status</code>, <code>doz app uninstall</code>; <code>doz uninstall</code> removes it too. The app ships inside the doz release — nothing appears on a Mac until you run the install. It is checked before it is copied (signature, Dozable&#x27;s team, the same version as doz) and swapped in by rename.</li>
+<li><strong>The menu:</strong> the daemon&#x27;s state in one line — running with its version, stopped, stopped on purpose, started from ssh (it cannot read your Keychain; Restart from the menu fixes that), running an older build, starting or stopping; then Start Daemon, Stop Daemon… (it asks first when sandboxes are running), Restart Daemon, Open Dashboard, and Quit Dozable Menu, which never stops the daemon. When doz is missing or older than 0.50.5 the menu says so and offers what still works. When the copy inside doz is newer, it offers &quot;Update menu bar app&quot;.</li>
+<li><strong>The icon</strong> is a placeholder glyph that shows the state: filled, outline, with a dot, dashed.</li>
+<li><strong>How it is built:</strong> the app only ever runs the <code>doz</code> command (<code>--json</code>, by absolute path, no shell); it does not talk to the daemon itself, so it keeps working across doz upgrades. It never sees a dashboard link. Its periodic status checks are not counted in anonymous usage statistics.</li>
+<li>The release now builds, signs, notarises and staples the app with doz, and checks it before notarisation; the smaller helper release does not carry it.</li>
+<li>NOT verified by any test, and to be looked at by a person: the menu on screen, the icon in light and dark, the Stop question, Open Dashboard arriving signed in, the first open with no Gatekeeper warning.</li>
+<li>Tests: <code>make test</code> 1877 / 0 (the status model from real fixtures, the menu&#x27;s state table, the command runner, the install); the new <code>make test-cli-app</code> (36 rows: the model with doz missing, start from the app with the daemon outside its process tree, the dashboard opened with no link anywhere, doz replaced under the app, install and uninstall into a scratch folder, a tampered bundle refused); <code>make test-updates</code> (the update swap carries the app). <code>make test-cli</code> shows only the 2 failures that predate this release.</li>
+</ul>
+</body></html>
