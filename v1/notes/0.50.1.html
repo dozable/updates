@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.1</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.1</h1>
+<h1>doz 0.50.1</h1>
+<p><strong>A site permission can name ports: <code>site:HOST:PORT</code></strong> (issue #415; step 4 of the session-hub program, #405). From the peer&#x27;s switchboard test on 0.40.0: <code>site:&lt;hub address&gt;</code> opened every port of the hub to a fenced session, and <code>site:&lt;hub address&gt;:8780</code> matched nothing.</p>
+<ul>
+<li><strong><code>site:HOST:PORT</code> and <code>site:HOST:P1,P2</code></strong> wherever <code>site:HOST</code> is taken: <code>--permissions</code>, <code>--allow</code>, <code>doz net allow|deny</code> (sandboxes and <code>@mac --session</code>), the dashboard. HOST is a name, <code>*.domain</code> or an IPv4 address; up to 16 ports. An IPv6 address is refused with the form to use.</li>
+<li><strong>What wins:</strong> a port allow opens only that port; a whole-host deny beats any port allow; a port deny blocks just that port under a whole-host allow. An old <code>site:HOST</code> rule still means every port — stored rules are read unchanged.</li>
+<li><strong>Allowing a port of a host you had denied whole lifts that deny,</strong> and the command says so (<code>lifted: deny HOST</code>).</li>
+<li><strong>Ports for one host are kept as one rule:</strong> <code>site:H:80</code> then <code>site:H:443</code> shows as <code>H:80,443</code> in <code>doz net show</code>, the dashboard and <code>--json</code> (<code>sites</code> stays an array of strings).</li>
+<li><strong>A refused connection on a port other than 80 or 443 suggests the narrow grant,</strong> <code>site:HOST:PORT</code>.</li>
+<li><strong>Stricter on this Mac&#x27;s sessions:</strong> <code>--permissions site:localhost</code> (and other undotted names) is refused now — one parser everywhere. It never opened anything: this Mac&#x27;s own addresses and loopback stay refused whatever a site rule says, and tests prove it for <code>site:127.0.0.1:PORT</code>.</li>
+<li>Tests: <code>make test</code> 1717 / 0; <code>make test-cli-fence</code> passes with the new port rows (8081 open, 8082 refused, live deny, a port deny under a whole-host allow); <code>make test-cli-host</code> passes. Not run: the VM network suites (<code>test-cli-permissions</code>, <code>test-vm-network</code>) — sandbox behaviour is covered by the unit tests and the fence rows.</li>
+</ul>
+</body></html>
