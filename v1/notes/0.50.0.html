@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.0</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.0</h1>
+<h1>doz 0.50.0</h1>
+<p><strong><code>doz host</code> is now <code>doz daemon</code></strong> (issue #411; step 3 of the session-hub program, #405). Owner 2026-11-16: &quot;yes daemon is the name but i dont want aliases for the old &#x27;host&#x27; sub command - it should just fail. add a temporary migration code path … easily removable&quot;; the version, 0.50.0, is the owner&#x27;s.</p>
+<ul>
+<li><strong>Dozable&#x27;s background process is the daemon</strong> everywhere you read or type it: <code>doz daemon start|stop|restart|status|upgrade-check</code>. <strong><code>doz host …</code> no longer exists</strong> — it fails as an unknown command, with no alias. &quot;Host&quot; now means the computer (the coming <code>--host-port</code> and <code>host.dozable.internal</code>).</li>
+<li><strong>Settings:</strong> <code>daemon.idle_timeout_minutes</code>, <code>daemon.screen_capture_minutes</code>, <code>daemon.boot_logs_kept</code>, <code>daemon.keepalive</code> — your existing <code>host.*</code> values are read and moved on the next settings write. The environment variable <code>DOZ_HOST_IDLE</code> is now <code>DOZ_DAEMON_IDLE</code> (the old name is not read).</li>
+<li><strong>Files in the store:</strong> <code>daemon.lock</code>, <code>daemon.sock</code>, <code>daemon.pid</code>, <code>daemon.log</code> (the old log is renamed once). An app that talks to the helper build over its socket uses <code>daemon.sock</code>.</li>
+<li><strong><code>--json</code> names:</strong> <code>daemon upgrade-check --json</code> → <code>daemonVersion</code>, <code>daemonExecutable</code>; <code>doctor --json</code> check names <code>daemon</code>, <code>daemon priority</code>, <code>daemon login</code>; <code>sessions @mac --json</code> network value <code>waiting (no daemon)</code>; the dashboard&#x27;s actions <code>daemon-start</code>, <code>daemon-restart</code>. Exit code 6 still means the daemon is unavailable.</li>
+<li><strong>Upgrading is safe:</strong> a 0.50.0 daemon takes the old lock as well as the new one, so an older doz can never become a second owner of a store; <code>doz daemon stop</code> stops a 0.40.x process still running; a fenced session keeps running across the hand-over. One temporary migration file does this, to be deleted once every install has run 0.50.0 (backlog 689.B1).</li>
+<li><strong>No more macOS privacy notices from screenshot scripts:</strong> a headless Chrome a script starts is now its own responsible process (<code>Scripts/chrome-launch.mjs</code>), so its touches of its own app are not charged to the app that started it.</li>
+<li>Tests: <code>make test</code> 1701 / 0; <code>make test-vm-upgrade</code> (0.40.3 → this build, including &quot;never a second owner&quot; and the fenced hand-over), <code>make test-cli-host</code>, <code>make test-cli-fence</code> pass; <code>make test-cli</code> 918 pass with 2 failures that predate this release (backlog 683.B4, 689.B2).</li>
+</ul>
+</body></html>
