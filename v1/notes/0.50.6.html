@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.6</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.6</h1>
+<h1>doz 0.50.6</h1>
+<p><strong>Keep this Mac&#x27;s Claude login renewed: <code>doz account keepalive always</code></strong> (issue #418; step 8c of the session access program, #405). On an unattended Mac that runs only fenced sessions, the Mac&#x27;s Claude login lapsed and no new session could start until someone opened Claude Code on its screen.</p>
+<ul>
+<li><strong><code>doz account keepalive off|on|always</code>.</strong> <code>always</code>: while the daemon runs, it renews the Mac&#x27;s Claude login when it expires, with no sandbox needed. <code>on</code> (as before) only while something used the login in the last 15 minutes — and a fenced session on this Mac now counts.</li>
+<li><strong>It runs when the login expires, not before — a fix to the keep-alive that already shipped.</strong> Measured on a real Mac (Claude Code 2.1.325): the keep-alive&#x27;s command run 8 minutes before expiry renews nothing. The old rule ran once, up to 10 minutes early, and never again for that expiry. Now the first run is at the expiry; a run that renews nothing or fails is tried again 1, 5 and 15 minutes later, then every 30 minutes, six runs at most.</li>
+<li><strong>What it is:</strong> Dozable runs this Mac&#x27;s own Claude Code once, with a fixed command, no tools, an empty folder and a scrubbed environment. Dozable still never holds or writes Claude Code&#x27;s refresh token.</li>
+<li><strong>What stops it, and it says so:</strong> a daemon started where the login keychain is locked (over ssh); Claude Code not installed; an unfenced Claude Code running on this Mac — named by its process and session (it holds its own copy of the login, and renewing under it is not proved safe). Claude Code&#x27;s own background process counts as one. A fenced session does not stop it.</li>
+<li><strong>Shown</strong> in <code>doz account ls</code> (<code>--json</code> <code>keepalive</code>), <code>doz daemon status</code> and <code>doz doctor</code>: the mode, the last renewal, the next try, a failure with its reason — never a token.</li>
+<li><strong>A login that exists only in Claude Code&#x27;s credentials file</strong> (signed in over ssh) is now read as expired when it expires, not as signed out, so it can be renewed.</li>
+<li>Asked once, on a terminal, after the &quot;start at login&quot; question and after <code>doz daemon login-item on</code>.</li>
+<li>Not settled, stated plainly: whether a renewal by another process cancels the login a running interactive Claude Code holds. On the test Mac an idle interactive session with Remote Control renewed the login itself within minutes of expiry.</li>
+<li>Tests: <code>make test</code> 1823 / 0 (the timing, the retries, the skips, the record); <code>make test-cli-host</code>, <code>make test-cli-fence</code>, <code>make test-cli-keychainlocked</code> pass with new rows; a real race (two looks both starting a run) found and fixed. Every test run uses a fake Claude Code; the real one is never run by a test. <code>make test-cli</code> was not re-run on the final code (before the timing change it showed only the 2 failures that predate this release). No VM test.</li>
+</ul>
+</body></html>
