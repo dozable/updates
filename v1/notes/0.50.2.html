@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.2</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.2</h1>
+<h1>doz 0.50.2</h1>
+<p><strong>Reach a service on this Mac: <code>--host-port</code> and <code>host.dozable.internal</code></strong> (issue #417; step 5 of the session access program, #405). A sandbox or a fenced session could not reach a server running on the same Mac — every address of this Mac is refused, by design — except the one model-server port a sandbox was made with.</p>
+<ul>
+<li><strong><code>--host-port PORT</code></strong> (repeatable, up to 16) on <code>doz create</code>, <code>doz up</code>, <code>doz run</code> and <code>doz run @mac</code>; <code>host_ports:</code> in <code>doz_project.yaml</code>. Inside, the service is <code>host.dozable.internal:PORT</code>; <code>mac.dozable.internal</code> is the same route, and a sandbox&#x27;s model-server port is one entry of the same list. The proxy connects to 127.0.0.1:PORT and nothing else of this Mac: the same port by address (127.0.0.1, localhost, the Mac&#x27;s LAN or Tailscale address) is still refused.</li>
+<li><strong>The permission <code>host:PORT</code>:</strong> <code>doz net allow|deny NAME host:PORT</code> (and <code>@mac --session S</code>) changes it live; also a word in <code>--permissions</code> / <code>--allow</code>. The setting <code>network.host_ports_live</code> (on by default) — off: ports are fixed at start; taking one away always works. Open does not include it: Open opens the internet, not this Mac.</li>
+<li><strong>Never opened:</strong> Dozable&#x27;s own ports (the dashboard, a proxy, a sandbox&#x27;s forwarded web port — checked when granted and at each connection), port 0 and ports below 1024.</li>
+<li><strong><code>PORT:tag</code></strong> names the sandbox (<code>NAME</code>) or session (<code>@mac/NAME</code>) to the service in an <code>X-Dozable-Session</code> header on plain-HTTP requests, replacing any copy the program sent. It identifies; it does not authenticate. A CONNECT tunnel is never read.</li>
+<li><strong>Shown</strong> in <code>doz net show</code> (<code>--json</code> <code>hostPorts</code>), the agent&#x27;s facts, a fenced session&#x27;s capabilities, the plan and the dashboard (read-only). <code>--unfenced --host-port</code> is refused: an unfenced session already reaches every port.</li>
+<li><strong>Help:</strong> <code>doz help run</code>, create/up <code>--allow</code> and <code>doz net permissions</code> now list <code>site:HOST[:PORT]</code> and <code>host:PORT</code>.</li>
+<li>Limits to know: <code>doz up</code> on an existing sandbox does not apply new <code>host_ports:</code> (use <code>doz net allow</code>); a live grant reaches the agent&#x27;s facts at its next session.</li>
+<li>Tests: <code>make test</code> 1735 / 0; <code>make test-cli-fence</code> passes with the new rows (the route by both names, plain and CONNECT; every address form still refused; live allow and deny; the setting off; the tag; the record across a daemon stop); <code>make test-vm-network</code> passes with a sandbox reaching the port by name (it sets the proxy&#x27;s list directly — <code>doz create --host-port</code> through the daemon has no VM test; the fence rows cover that path for sessions). <code>make test-cli-host</code> is the implementing agent&#x27;s run.</li>
+</ul>
+</body></html>
