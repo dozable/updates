@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.9</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.9</h1>
+<h1>doz 0.50.9</h1>
+<p><strong>Chat, step 1: the server&#x27;s foundation (hidden)</strong> (issue #433; the first of the chat port&#x27;s milestones, #432). The owner: the switchboard&#x27;s chat becomes a part of Dozable, ported to Swift, a public feature; the Go switchboard is the reference and its outside-in conformance runner is the gate. Nothing in this release is visible to a user.</p>
+<ul>
+<li><strong>A new part of doz, <code>DozableChat</code>,</strong> that depends on none of the sandbox machinery: a chat server reached only through a hidden command (<code>doz chat serve</code>, <code>doz chat status</code>), not in <code>doz --help</code>, the manual or completions. It reads no doz settings, opens no store, starts no daemon and touches no Keychain; it writes only inside the data folder it is given.</li>
+<li><strong>What it already does:</strong> the page and line listeners with the access rules (who may connect, when a token is needed, what a caller on an agent address may reach), posting by all three paths, mentions and answers, the room and membership commands, direct-message forms, the hold, paging, <code>/api/state</code> and <code>/api/protocol</code>, and the rooms kept in the reference&#x27;s own storage format (so an existing data folder can be imported later).</li>
+<li><strong>The gate:</strong> 43 of the reference&#x27;s 159 protocol checks pass, the same on every run, kept in a ratchet that may only grow. Two more checks compare a refusal text byte for byte with the reference, whose example room name was a private project&#x27;s; this public source uses a neutral one, and those two return with the reference&#x27;s next release.</li>
+<li>The conformance runner is private, so CI says the gate was not run; the release is gated on a local run.</li>
+<li>Tests: <code>make test</code> 1936 / 0 (31 new: the config, the access table, the store against a file written by the reference, isolation in an empty home); <code>make test-chat-conformance</code> 43 / 43 of the ratchet; <code>make audit</code> with a new rule for what the chat target may import. <code>make test-cli</code> shows only the 2 failures that predate this release (the implementing agent&#x27;s run).</li>
+</ul>
+</body></html>
