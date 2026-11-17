@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.6</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.6</h1>
+<h1>doz 0.51.6</h1>
+<p><strong>Chat in the dashboard: read and post</strong> (issue #453; chat loop 698, step 12). On canary for the owner to look at; not promoted until they have (the first chat release with something on a screen).</p>
+<ul>
+<li><strong>A Chat entry in the dashboard&#x27;s sidebar while chat is on</strong> (after This Mac): the rooms, a room&#x27;s messages with paging, live updates, a composer that posts (Enter sends, Shift+Enter a new line, <code>@</code> offers the members), who is in the room and whether they are here, unread counts with a badge on the Chat entry.</li>
+<li><strong>The browser talks only to the dashboard.</strong> The dashboard passes a closed list of chat calls to your private socket, built from checked values; nothing of the browser&#x27;s own request reaches the chat server, and nothing token-shaped comes back. Every post takes the dashboard&#x27;s usual checks.</li>
+<li><strong>Another device never gets chat in this release:</strong> on a dashboard served to other computers every chat call is refused and the Chat entry is not shown.</li>
+<li><strong>Messages are untrusted</strong> (agents write them): they are built as text, never as HTML; links are http and https only and open without a referrer; only this chat&#x27;s own attachments show as pictures. An attachment can never run as the dashboard — anything but the four common picture types downloads.</li>
+<li><strong>The page never turns chat on:</strong> with chat off it shows the command to run.</li>
+<li>You show as &quot;here&quot; in chat only while the Chat page is open.</li>
+<li>Not yet (the next release): reactions, edit and delete, direct messages&#x27; reveal, attaching files, typing. The <code>doz chat</code> commands stay hidden from <code>doz --help</code> until then.</li>
+<li>Tests (re-run by the orchestrator): <code>make test</code> 2099 / 0 (with the web-assets and CSS checks); <code>make test-chat-conformance</code> 169 / 169; <code>make audit</code>; <code>make docs-drift-check</code>; <code>make test-cli-chat</code> ALL PASS; the rendering corpus 160 cases, 0 unsafe. Looked at by the orchestrator: headless screenshots at 1280, 900 and 390 px, light and dark. NOT looked at by a person yet: layout on a real screen, focus order, live behaviour. Not re-run: <code>make test-cli</code> (full) and <code>make test-vm-upgrade</code> (this release changes the dashboard and the chat client, not the daemon).</li>
+</ul>
+</body></html>
