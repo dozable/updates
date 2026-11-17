@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.3</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.3</h1>
+<h1>doz 0.51.3</h1>
+<p><strong>Chat, steps 6–7: sessions, delivery into Claude Code sessions, attachments (hidden)</strong> (issue #442; chat loop 698). Still behind the hidden command; nothing here is visible to a user.</p>
+<ul>
+<li><strong>Delivery into a running Claude Code session,</strong> as the reference does it: the server finds the session by name in Claude Code&#x27;s list of running sessions and writes the message to that session&#x27;s own messaging socket; edit and delete notices and the protocol text go the same way; a message is marked started when the session turns busy after the hand-over; <code>/react</code> with no message named falls back to the one last handed to the sender. This is the first thing the chat server touches outside its own folder: it READS the session list and CONNECTS to the one session it delivers to; it writes nothing there and makes no socket of its own. Every test uses a scratch session folder and a scratch socket, and refuses to run against a real one.</li>
+<li><strong>Attachments:</strong> upload, inline bytes, attaching by id, download, and the line port&#x27;s file line. Stricter than the reference on purpose: a file is served only to someone who may read a message that names it; a download carries <code>nosniff</code> and a sandboxing policy, and anything but the four common image types downloads rather than renders; an upload is capped at 20 MiB before a byte is kept; a caller&#x27;s file name is never used as a path (files are stored under a random id).</li>
+<li><strong>Left out on purpose:</strong> attaching a file by its PATH on this Mac. A message must not be a way for a participant to have the server read files its own fence denies it; that is the owner&#x27;s decision (one reference check stays out of the ratchet for it).</li>
+<li>A message is found by the start of its id only when that start is made of an id&#x27;s characters (an empty start, <code>%</code> or <code>_</code> matches nothing), as the reference&#x27;s 0.12.2 has it.</li>
+<li><strong>The gate:</strong> 159 of the reference&#x27;s 185 checks pass (was 135), the same on every run. What is left is room apps (manifests, icons, the service worker) and that one check.</li>
+<li>Tests (re-run by the orchestrator): <code>make test</code> 1989 / 0; <code>make test-chat-conformance</code> 159 / 159; <code>make audit</code>; <code>make docs-drift-check</code>.</li>
+</ul>
+</body></html>
