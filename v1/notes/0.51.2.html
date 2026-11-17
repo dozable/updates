@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.2</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.2</h1>
+<h1>doz 0.51.2</h1>
+<p><strong>Chat, steps 3–5: reactions and delivery by webhook (hidden)</strong> (issue #440; chat loop 698). Still behind the hidden command; nothing here is visible to a user.</p>
+<ul>
+<li><strong>Reactions</strong> by all three paths (a reaction line, <code>/react</code>, the page&#x27;s call), each done once per id; the same reaction again takes it off; each is an event on the live stream.</li>
+<li><strong>Delivery to a bot&#x27;s webhook:</strong> each message to each bot is its own call, tried at 0, 5 and 20 seconds with a 30-second limit; the delivery states the page shows; edit and delete notices; a held message released in order; at start, what was never handed over (up to a day old) is delivered again, once.</li>
+<li><strong>The webhook client is deliberately narrow:</strong> it calls only the address the config names, follows no redirect, uses no proxy from the environment, keeps no cookies or cache, and never reads the answer&#x27;s body. A slow or dead webhook blocks neither posting nor another recipient. The webhook&#x27;s secret and address appear in no log, state, error text or stream. Each of these has a test against a listener the test starts on this Mac.</li>
+<li><strong>The gate:</strong> 135 of the reference&#x27;s 185 checks pass (was 92), the same on every run, all in the ratchet. The served protocol version is unchanged and equals the reference&#x27;s. What is left waits on delivery into Claude Code sessions, attachments and room apps.</li>
+<li>Tests (re-run by the orchestrator): <code>make test</code> 1973 / 0; <code>make test-chat-conformance</code> 135 / 135; <code>make audit</code>; <code>make docs-drift-check</code>.</li>
+</ul>
+</body></html>
