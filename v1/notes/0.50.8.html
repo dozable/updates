@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.50.8</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.50.8</h1>
+<h1>doz 0.50.8</h1>
+<p><strong>The menu bar app can start Dozable at login</strong> (issue #430; step 9b, the last step of the session access program, #405).</p>
+<ul>
+<li><strong>One switch in the menu, Start at Login:</strong> it starts the doz daemon when you log in, from your desktop session, and brings the menu back too. It uses macOS&#x27;s own mechanism for apps, so &quot;Dozable&quot; appears under Login Items in System Settings, where it can be switched off; the menu then says it needs approval and opens that page. Nothing is registered until you click.</li>
+<li><strong>Never two login items:</strong> when the app holds it, doz removes its own (<code>doz daemon login-item on</code>&#x27;s item) and does not add it again; <code>doz daemon status</code> says the menu bar app starts the daemon at login. Turning the switch off, <code>doz app uninstall</code> and <code>doz uninstall</code> take it back.</li>
+<li><strong>It needs the app in Applications and doz 0.50.8:</strong> from anywhere else, or with an older doz, the item is shown disabled with the reason.</li>
+<li><strong>What starts the daemon</strong> is the app&#x27;s own executable in a small non-window mode: it finds your installed doz, checks it is signed by Dozable, and runs <code>doz daemon start --login-item</code> — the daemon is started the usual way, never as a child of the app. With no doz it does nothing, quietly.</li>
+<li><strong>Fixed: tests showed a &quot;Dozable is damaged&quot; dialog.</strong> The app&#x27;s test suite built a scratch bundle with a stand-in program inside it, which macOS refused on screen. A test run now never puts a stand-in inside a bundle and never asks macOS to open an app; a run that would is stopped.</li>
+<li><strong>Fixed: the release&#x27;s own check of the packed app</strong> used a relative path (0.50.7 was released by hand around it).</li>
+<li>NOT verified by any test — it needs a real registration and a screen: the switch itself, macOS&#x27;s &quot;Login Item Added&quot; notice, the System Settings row, the daemon and the menu coming back after a restart of the Mac. Checked on the test Mac after this release.</li>
+<li>Tests: <code>make test</code> 1904 / 0; <code>make test-cli-app</code> and <code>make test-cli-daemon</code> pass, with a recording stand-in for macOS&#x27;s login-item service; the release script&#x27;s local run of both flavours; <code>make test-updates</code> 60 / 0. <code>make test-cli</code> shows only the 2 failures that predate this release.</li>
+</ul>
+</body></html>
