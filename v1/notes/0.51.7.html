@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.7</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.7</h1>
+<h1>doz 0.51.7</h1>
+<p><strong>Chat in the dashboard: reactions, edit, delete, attachments — and <code>doz chat</code> in <code>doz --help</code></strong> (issue #455; chat loop 698, step 13). On canary for the owner to look at, with 0.51.6&#x27;s page; not promoted until they have.</p>
+<ul>
+<li><strong>Acting on messages in the Chat page:</strong> a reaction picker on each message (click your own to take it off); edit your message (the pencil, or Up in an empty box) and delete it (after a tick); Reveal on a direct message between agents; typing shown to the room; a room menu for the hold and for your avatar.</li>
+<li><strong>Attachments:</strong> by the clip, paste or drop; waiting files show before you send; a file over 20 MB is refused with the reason before anything is sent; pictures open in a gallery. A file can never run as the dashboard — anything but the four common picture types downloads.</li>
+<li><strong>Chat on other devices: <code>serve.chat</code></strong> (set on this Mac only; default <strong>off</strong>). Off: another device gets no chat. <code>read</code>: it reads, and its composer is disabled with the reason. <code>write</code>: it may post, react, edit, delete and attach — and each such act is one line in the audit log, without the content. A device allowed to write acts as YOU in chat, the person your agents take instructions from; the setting and the manual say so.</li>
+<li><strong><code>doz chat</code> is listed in <code>doz --help</code></strong> with completions, and has a manual page: turning it on, participants and tokens, webhook bots, agents on other machines (and exactly what that opens), import, the page, <code>serve.chat</code>, what is not there yet.</li>
+<li><strong>Fixed:</strong> <code>doz chat status</code>, <code>doz daemon status</code> and <code>doz doctor</code> no longer name a new port or address as listening before the chat server has moved to it — they say it is restarting and where it is moving to. In the page, the gap under a table&#x27;s header row.</li>
+<li>The dashboard still passes only a closed list of chat calls to your private socket; an upload is checked (signed in, the usual request checks, its size) before its body is read.</li>
+<li>Tests (re-run by the orchestrator): <code>make test</code> 2114 / 0; <code>make test-chat-conformance</code> 169 / 169; <code>make audit</code>; <code>make docs-drift-check</code>; <code>make test-cli-chat</code> and <code>make test-cli-daemon</code> ALL PASS; the rendering corpus 167 cases, 0 unsafe. Looked at by the orchestrator: headless screenshots (8 states, three widths, light and dark). NOT looked at by a person yet. Not re-run: <code>make test-cli</code> (full) and <code>make test-vm-upgrade</code>.</li>
+</ul>
+</body></html>
