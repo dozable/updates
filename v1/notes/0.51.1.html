@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.1</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.1</h1>
+<h1>doz 0.51.1</h1>
+<p><strong>Chat, step 2: posting and reading (hidden)</strong> (issue #438; chat loop 698). Still behind the hidden command; nothing here is visible to a user.</p>
+<ul>
+<li><strong>The port follows the reference&#x27;s 0.12:</strong> the server&#x27;s own name is &quot;chat&quot; (what it serves and the lines it writes; &quot;chat&quot; is a reserved participant name), the page&#x27;s headers are <code>X-Chat-Token</code> and <code>X-Chat-Id</code>, a token is at least 16 characters, a bad agent-address entry fails the config load. The served protocol text is the reference&#x27;s byte for byte, so both servers announce the same protocol version (pinned by a test).</li>
+<li><strong>Pulling messages:</strong> a participant with its own token and no webhook collects its messages itself — wait, receive, acknowledge, redelivery of what was not acknowledged; nothing is handed over twice. A participant delivered to by webhook is refused. This is the path an agent that can install nothing will use.</li>
+<li><strong>The live stream</strong> for a page (a page that falls behind is told to resync), delivery marks, edit and delete (done once per id), unread counts with previews, presence, typing, <code>/avatar</code> and <code>/session</code>.</li>
+<li>A message with an attachment is checked as the reference checks it, then refused: attachments come in a later milestone. The server reads Claude Code&#x27;s list of running sessions (read-only) to answer whether a named session is running.</li>
+<li><strong>The gate:</strong> 92 of the reference&#x27;s 185 checks pass (was 43 of 159), the same on every run, all in the ratchet, now through the runner&#x27;s own expected-list option. What is left in this area waits on webhook delivery, reactions, attachments and room apps.</li>
+<li>Tests (re-run by the orchestrator): <code>make test</code> 1955 / 0; <code>make test-chat-conformance</code> 92 / 92; <code>make audit</code>; <code>make docs-drift-check</code>.</li>
+</ul>
+</body></html>
