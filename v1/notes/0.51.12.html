@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.12</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.12</h1>
+<h1>doz 0.51.12</h1>
+<p><strong>A fenced Claude Code session started behind <code>env</code> works; every fenced session has its own temp folder; the chat lead skill checks on its workers</strong> (issue #468). Found by a lead trial on the owner&#x27;s Mac: a worker started as <code>env CHAT_URL=… claude …</code> in a fence died at once (<code>EPERM … /tmp/claude-502</code>).</p>
+<ul>
+<li><strong>The program is found through a leading <code>env NAME=VALUE …</code></strong> (<code>env</code> or <code>/usr/bin/env</code>): such a session gets Claude Code&#x27;s own settings folder, its login and its temp folder, and a restart resumes its conversation with the variables kept in front. <code>env</code> with an option is not guessed at.</li>
+<li><strong>Every fenced session gets <code>CLAUDE_CODE_TMPDIR</code></strong> (its own temp folder), whatever its program — a script that starts <code>claude</code> works too.</li>
+<li><strong>The chat lead skill:</strong> after starting a worker, wait for its &quot;is up&quot; with a timer and look at its screen if it does not come; start a worker with the program first and variables through <code>doz run -e</code>. <strong>The skills&#x27; advice on Claude Code&#x27;s <code>dontAsk</code></strong> is corrected: Claude Code always runs its read-only commands (<code>ls</code>, <code>cat</code>, <code>grep</code>, <code>wc</code>, …) without asking, so an allow list is not a limit on reading — the fence is.</li>
+<li><strong>A new fence-suite part</strong> stops and restarts the daemon under four sessions (fenced, fenced Claude stand-in, fenced behind <code>env</code>, unfenced): every program keeps its pid, is never signalled, keeps its terminal, and its network answers again after the restart. Not yet explained: one real fenced Claude Code session ended (exit 129) at a daemon stop on the owner&#x27;s Mac; nothing in Dozable sends that signal, and the next upgrade is watched for it.</li>
+<li>Tests (re-run by the orchestrator): <code>make test</code> 2154 / 0; <code>make test-cli-fence</code> ALL PASS; <code>make test-cli-host</code> ALL PASS; <code>make audit</code>; <code>make docs-drift-check</code>.</li>
+</ul>
+</body></html>
