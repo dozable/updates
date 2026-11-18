@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.1</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.1</h1>
+<h1>doz 0.52.1</h1>
+<p>Agent / Bot identities: a lasting identity you set up once and add to workspaces and rooms; there are no screens yet.</p>
+<ul>
+<li><code>doz bot new / ls / show / set / retire / adopt / token</code>.</li>
+<li>Each bot has its own chat participant. Its token lives only in its keychain item, never in a command line, a record, a log or <code>--json</code>. A bot on another machine sees its token once.</li>
+<li>Retiring a bot revokes its token. Its old messages keep its name, and the name stays reserved.</li>
+<li><code>doz bot adopt</code> turns an existing chat participant into a bot and replaces its token, saying so first.</li>
+<li><code>doz chat remove</code>, <code>token</code> and <code>set</code> on a bot point to the matching <code>doz bot</code> command.</li>
+</ul>
+</body></html>
