@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.13</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.13</h1>
+<h1>doz 0.51.13</h1>
+<p><strong>The dashboard follows upgrades, offers &quot;Restart dashboard&quot;, gives the right advice, and names its Mac</strong> (issue #470). On the owner&#x27;s Mac a background dashboard started from Homebrew&#x27;s 0.51.8 folder stayed 0.51.8 through two upgrades (a restart re-ran its own old program), while the doctor told them to stop the newer daemon.</p>
+<ul>
+<li><strong>It follows upgrades:</strong> <code>doz ui</code> starts from Homebrew&#x27;s stable path and a restart starts the doz installed now. A dashboard whose program was replaced restarts itself when no page, terminal or operation is open.</li>
+<li><strong>&quot;Restart dashboard&quot;</strong> in the status card and the version banner when the dashboard is older than the installed doz — this Mac&#x27;s own browser only (a device let in over the network or a proxy is refused and audited); the page reloads itself.</li>
+<li><strong>The right advice:</strong> no &quot;Ctrl-C&quot; for a background dashboard; <code>doz doctor</code> says the dashboard (or this doz) is the older one instead of telling you to stop a newer daemon; an update is never offered for the build already installed.</li>
+<li><strong>A name per Mac:</strong> the installable app is &quot;Dozable – &lt;this Mac&#x27;s network name&gt;&quot; (&quot;Doz &lt;name&gt;&quot; in the Dock), and the window title says it, so each Mac installs as its own app. A copy installed before may need installing again to pick up the name.</li>
+<li>Tests (re-run by the orchestrator): <code>make test</code> 2172 / 0; <code>make test-cli-alwayson</code> ALL PASS (a Homebrew-shaped prefix: started from <code>opt</code>, restarts itself on a new link, <code>doz ui restart</code> runs the newest); <code>make test-cli-app</code> ALL PASS; <code>make css-lint</code>; <code>make audit</code>; <code>make docs-drift-check</code>. Not seen yet: the button and the installed app&#x27;s name in a browser.</li>
+</ul>
+</body></html>
