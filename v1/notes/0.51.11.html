@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.11</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.11</h1>
+<h1>doz 0.51.11</h1>
+<p><strong>Chat&#x27;s inbox delivery matches a Claude Code session by the name you gave it</strong> (issue #464, the 0.51.x fixes). A Claude Code session&#x27;s name is free text the person sets — capitals and spaces included — but <code>doz chat set … --session NAME</code> accepted only the chat-name rule, so a session named like &quot;OPS-PROJECTS on m1max&quot; was refused (found by the peer on 0.51.10).</p>
+<ul>
+<li><code>--session</code> now takes any name of 1–100 characters, compared exactly as the session shows it; refused only: control characters, line breaks, direction-changing characters, <code>/</code>, and a space at either end. A refusal never echoes a control character. A participant&#x27;s chat name keeps its own rule.</li>
+<li>Tests: <code>make test FILTER=ChatInbox</code> 0 failures (new cases: capitals and spaces, accents, 100 characters accepted; empty, edge spaces, newline, NUL, an escape sequence, U+2028, a direction override, a path, 101 characters refused); CI on the PR.</li>
+</ul>
+</body></html>
