@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.15</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.15</h1>
+<h1>doz 0.51.15</h1>
+<p><strong><code>doz ui publish tailscale</code>: port 80&#x27;s redirect works on a real Mac</strong> (issue #477). 0.51.14 pointed Tailscale&#x27;s port 80 at a unix socket in the store, which Tailscale serves only for root or a user tailscaled can check with <code>sudo</code> — never true for Dozable&#x27;s node under its LaunchAgent, so the first real run on m1max set up the node, the name, https and the settings, then stopped at port 80.</p>
+<ul>
+<li>The redirect now listens on a loopback port (127.0.0.1 only), chosen by <code>publish</code> and recorded with the published address; a re-run keeps it. Port 80 goes to <code>http://127.0.0.1:&lt;that port&gt;</code>, the same kind of target 443 already uses.</li>
+<li>It still answers only a 308 to the published https address plus the request&#x27;s path, never a target taken from the request.</li>
+<li>A Mac published with 0.51.14 is told to run <code>doz ui publish tailscale</code> again (in <code>doz doctor</code>, <code>doz ui publish status</code> and when the dashboard starts).</li>
+<li>The test suite&#x27;s fake Tailscale now refuses a unix socket or a path target exactly as the real one does, so this cannot slip through again.</li>
+<li>Tests (re-run by the orchestrator): the publish and redirect unit suites; <code>make test-cli-alwayson</code> ALL PASS; <code>make audit</code>; <code>make docs-drift-check</code>. The live check (re-publishing on m1max) happens after the release.</li>
+</ul>
+</body></html>
