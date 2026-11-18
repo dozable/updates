@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.14</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.14</h1>
+<h1>doz 0.51.14</h1>
+<p><strong><code>doz ui publish tailscale</code>: the dashboard on your tailnet at its own https address</strong> (issue #474). On m1max this was set up by hand on 18 November (a second Tailscale node, five settings), and it would not have survived a reboot.</p>
+<ul>
+<li><strong>Dozable&#x27;s own Tailscale node:</strong> Homebrew&#x27;s <code>tailscaled</code> in userspace mode, its state in the store, kept running by a per-user LaunchAgent. The Mac&#x27;s own Tailscale and its <code>tailscale</code> command are left alone. Named <code>dozable-&lt;this Mac&#x27;s name&gt;</code> by default (<code>--name</code> to choose); the first run shows Tailscale&#x27;s sign-in link and waits for it; <code>--adopt-state</code> takes over a node started by hand, keeping its name and address.</li>
+<li><strong>Serving:</strong> https on 443 with Tailscale&#x27;s certificate; port 80 answers with a redirect to the https address (the running dashboard answers it on a socket in the store; the target comes from the published address, never the request).</li>
+<li><strong>One step:</strong> the fixed port, this-Mac-only listening, the trusted proxy and the public address are set, and the dashboard restarts. Chat on other devices stays as <code>serve.chat</code> says.</li>
+<li><strong>It comes back:</strong> while published, the daemon (started at login) starts the dashboard when it is not running, so the address answers after a reboot or a crash; never after you ran <code>doz ui stop</code> (or Ctrl-C), until you start it again.</li>
+<li><strong><code>doz ui publish status</code></strong>, <strong><code>doz ui unpublish tailscale [--logout]</code></strong> (settings back to this Mac only; <code>--logout</code> also removes the node), and <code>doz doctor</code> rows: the node, its sign-in, 443 pointing at the dashboard&#x27;s current port, the port-80 redirect, the dashboard kept running.</li>
+<li>Tests (re-run by the orchestrator): <code>make test-cli-alwayson</code> ALL PASS (a fake tailscale and launchctl: publish, idempotent re-run, status, a port mismatch caught, the dashboard brought back after a kill and not after <code>ui stop</code>, unpublish, a sign-in never approved); the publish unit suites; <code>make audit</code>; <code>make docs-drift-check</code>. A live probe on m1max&#x27;s node showed Tailscale&#x27;s port 80 reaching a unix socket (308, path and query kept). Not yet run for real: the full command against the real Tailscale and launchd — done on m1max after release.</li>
+</ul>
+</body></html>
