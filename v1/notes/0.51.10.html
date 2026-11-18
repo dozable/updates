@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.51.10</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.51.10</h1>
+<h1>doz 0.51.10</h1>
+<p><strong>Chat delivers into a Claude Code session&#x27;s own inbox; <code>doz chat set</code>; the menu bar app restarts itself to update</strong> (issue #462). The owner, concerned that a Claude session &quot;can ignore messages (or have them disabled)&quot;, asked that the server wake a Claude session on this Mac itself.</p>
+<ul>
+<li><strong>Inbox delivery under the daemon:</strong> a participant of kind <code>claude-session</code> delivered <code>inbox</code> gets each message written straight into the running Claude Code session of that name on this Mac — busy or idle, with nothing for the session to keep running. While no such session runs, a message to it fails at once: &quot;no running Claude session with that name&quot;; <code>doz chat who</code> shows <code>not running</code>, <code>idle</code> or <code>working</code>. Only while some participant is delivered this way, the chat server reads <code>~/.claude/sessions</code> (and the one session&#x27;s key) and connects to that session&#x27;s socket; <code>doz chat status</code> says so. Sessions run WITHOUT a fence only: a fenced session keeps its Claude settings in its own folder and polls with <code>dozchat</code>.</li>
+<li><strong><code>doz chat set NAME --deliver inbox|poll|webhook [--kind …] [--session S]</code></strong> changes how a participant is reached, keeping its token, rooms and history; <code>doz chat add NAME --inbox</code> adds one this way. Both print what the session needs to answer (its token file; the address only if the port is not the default).</li>
+<li><strong><code>dozchat</code> is on your PATH</strong> (Homebrew links it), and on the Mac it reaches this Mac&#x27;s chat server by default. Its words: several unquoted words of text are joined; a reaction&#x27;s <code>added</code> is explained.</li>
+<li><strong>Agents on other machines:</strong> a token that is no one&#x27;s now gets &quot;that token is no one&#x27;s here: an agent machine must send its own participant&#x27;s token&quot; (the protocol&#x27;s 0.14.2); with no token at all, the earlier words.</li>
+<li><strong>The menu bar app</strong> updates for real: when the copy installed on disk is newer than the running one, its menu says &quot;Restart to Update (old → new)&quot; and restarts it. Before, &quot;Update Menu Bar App&quot; could not find a running copy whose files had been replaced and only brought the old one to the front.</li>
+<li><code>doz chat send</code> lists each recipient once, with its latest state.</li>
+<li>Tests (re-run by the orchestrator): <code>make test</code> 2152 / 0; <code>make test-chat-conformance</code> 171 / 171 (runner 0.14.2); <code>make audit</code>; <code>make docs-drift-check</code>; <code>make dozchat-check</code>; <code>make dozchat-verify</code>; <code>test-cli-chat</code>, <code>test-cli-fence</code>, <code>test-cli-app</code>, <code>test-cli-daemon</code> ALL PASS; the x86_64 build green on GitHub&#x27;s runner. No test reads the real <code>~/.claude</code> (a guard stops one that would). Not yet: inbox delivery to a real Claude Code session (the peer switches over live after the release).</li>
+</ul>
+</body></html>
