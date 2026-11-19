@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.12</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.12</h1>
+<h1>doz 0.52.12</h1>
+<p>The workspace lifecycle: sleep, wake, finish, reopen, archive, restore and delete — each shows its plan first.</p>
+<ul>
+<li><code>doz workspace sleep | wake | finish | reopen | archive | restore | delete W</code>. Every one first shows what happens to</li>
+</ul>
+<p>each agent (a micro VM hibernates; a session on this Mac ends with its conversation kept and resumes on wake; an agent elsewhere is left alone), what is kept and what goes, then asks: nothing for sleep and wake, yes/no for finish, the workspace&#x27;s name typed for archive and delete. <code>--dry-run</code> shows the plan and does nothing; <code>--yes</code> skips the question. A verb acts only on the plan you saw: if something changed meanwhile, it is refused and nothing is done.</p>
+<ul>
+<li>Finish stops everything and keeps the room writable; reopen and wake bring it back. Archive makes its rooms read-only</li>
+</ul>
+<p>and retires its anonymous workers (bots keep their keys); restore brings it back as finished.</p>
+<ul>
+<li>Delete works only on a finished or archived workspace and removes its record. Nothing on disk goes unless you say so:</li>
+</ul>
+<p><code>--remove-sandboxes</code> removes the sandboxes Dozable made for it (a template of each kept first), and <code>--bin-folders</code> moves its folders to the Bin — never deletes them, and never your home folder or one another workspace uses. Its rooms stay, archived, with their history.</p>
+<ul>
+<li>The dashboard: each workspace&#x27;s page has a button for its next step (Start, Sleep, Wake, Reopen, Restore) and the rest</li>
+</ul>
+<p>in its ⋯ menu, each showing the same plan before it acts; Home folds asleep workspaces into &quot;Asleep&quot;. Only from this Mac&#x27;s own browser; another computer sees the command instead.</p>
+</body></html>
