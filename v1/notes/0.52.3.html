@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.3</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.3</h1>
+<h1>doz 0.52.3</h1>
+<p>Workers: one command brings an agent into a workspace with a task. There are no screens yet.</p>
+<ul>
+<li><code>doz worker add W [NAME] --task &quot;…&quot;</code>. It is fenced on this Mac by default, with <code>--isolation vm</code> for a micro VM and <code>--isolation unfenced</code> only when named (&quot;acts as you&quot;). <code>--from-bot BOT</code> uses one of your bots; without it, the worker gets a throwaway chat identity.</li>
+<li>A worker joins the workspace&#x27;s main room and says it is up there with its task. Its chat token reaches it only as a placeholder.</li>
+<li><code>doz worker ls W</code> shows every agent with its place, isolation, controls, network and state.</li>
+<li><code>doz worker end W NAME</code> ends it and revokes its token; its messages keep its name.</li>
+<li><code>--sandbox X</code> runs a second worker inside a sandbox of the workspace.</li>
+<li>A workspace must be started before workers are added; a bot runs in one live workspace at a time.</li>
+</ul>
+</body></html>
