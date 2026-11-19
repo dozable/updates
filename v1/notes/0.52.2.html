@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.2</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.2</h1>
+<h1>doz 0.52.2</h1>
+<p>A workspace can have a manager: one of your bots, started from its identity. There are no screens yet.</p>
+<ul>
+<li><code>doz workspace new … --manager BOT [--manager-isolation fenced|vm|unfenced]</code>, and <code>doz workspace edit W --manager BOT | --no-manager</code>.</li>
+<li><code>doz workspace start W</code> first checks that everything is set up, and lists any gaps with their fixes. It then posts the brief to the main room as you, and starts the manager: fenced on this Mac by default, or in a micro VM, or unfenced only when named (labelled &quot;acts as you&quot;).</li>
+<li>The manager holds only a placeholder for its chat token, never the real token.</li>
+<li><code>doz workspace stop W</code> ends the manager and keeps its conversation; starting again resumes it and does not post the brief twice.</li>
+<li>For now a bot runs in one live workspace at a time.</li>
+</ul>
+</body></html>
