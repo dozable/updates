@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.18</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.18</h1>
+<h1>doz 0.52.18</h1>
+<p>Space files: their format, and the plan of what <code>up</code> will do.</p>
+<ul>
+<li><code>doz workspace plan -f FILE</code> (also <code>doz space plan</code>) reads a space file — a workspace written as a file in git —</li>
+</ul>
+<p>resolves its <code>extends:</code> defaults, override file and <code>${VAR}</code> values, checks it, and prints what bringing it up would do: every agent, room, folder and sandbox, whether each is yours already or made for the run, what is kept between runs, and every risky setting (an unfenced agent, bypass, open network, grants requested, no archive) with the file and line it came from. Problems are reported with file, line and a hint. It changes nothing and starts nothing.</p>
+<ul>
+<li><code>doz workspace config FILE</code> prints the merged file, each value with where it came from.</li>
+<li>Bringing a space up and taking it down come in the next version.</li>
+</ul>
+</body></html>
