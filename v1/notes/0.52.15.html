@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.15</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.15</h1>
+<h1>doz 0.52.15</h1>
+<p>Runs and their evidence archive; finishing closes a workspace&#x27;s room; rooms can be archived and removed.</p>
+<ul>
+<li>A workspace now records its runs: each start…finish is one run, and sleep and wake stay inside it. `doz workspace runs</li>
+</ul>
+<p>W` lists them, and the workspace page has a Runs tab showing each run, its archived chat and its timesheet.</p>
+<ul>
+<li>Finishing a workspace archives the run first: the room&#x27;s messages for that run (any number), each agent&#x27;s</li>
+</ul>
+<p>conversations — on this Mac, fenced or not, and in a sandbox — their last screens, usage and a timesheet, with a manifest of checksums. The archive is private to you, kept in Dozable&#x27;s store, and checked for keys and tokens; if it can&#x27;t be written, nothing is removed and it can be written again later. <code>--no-archive</code> finishes without one.</p>
+<ul>
+<li>Finishing now closes the workspace&#x27;s room: its members can still read it, but new messages are refused until you</li>
+</ul>
+<p>reopen it. Finish&#x27;s plan says so before you confirm. An asleep workspace&#x27;s room stays open.</p>
+<ul>
+<li><code>doz chat room archive R</code> and <code>doz chat room rm R</code>: a room a workspace owns can be archived (read-only, copied first)</li>
+</ul>
+<p>and then removed for good, after you type its name; a tombstone records when, from which run, and where its archive is. <code>--loose</code> does the same for a room no workspace owns. From the Runs tab in this Mac&#x27;s own browser too.</p>
+<ul>
+<li><code>doz sessions @mac --forget S --discard-transcripts</code> removes a session&#x27;s conversations once they are safely</li>
+</ul>
+<p>archived — only files unchanged since, never anything else.</p>
+</body></html>
