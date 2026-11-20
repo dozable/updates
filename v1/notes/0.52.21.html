@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.21</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.21</h1>
+<h1>doz 0.52.21</h1>
+<p>Asks in the chat server: a question that waits for a decision.</p>
+<ul>
+<li>A member of a room can post an Ask: a question with options (or free text) for named deciders, by default the room&#x27;s</li>
+</ul>
+<p>people. The chat server decides who may answer: the people named, and a bot only while it holds the decider role. The first valid answer wins; the asker hears the outcome by webhook, by its poll or in its inbox. An unanswered Ask expires (after a day by default), also while the server was stopped. Each Ask gets a short number on this Mac, <code>#N</code>, never reused.</p>
+<ul>
+<li>Only you give a bot the decider role: <code>doz chat set NAME --role decider</code> (<code>--role none</code> takes it away).</li>
+</ul>
+<p><code>doz chat who</code> shows it.</p>
+<ul>
+<li>Limits, as settings: one open Ask per asker per room (<code>chat.ask_max_open</code>), a pause before the same question is asked</li>
+</ul>
+<p>again after a decline (<code>chat.ask_cooldown_seconds</code>), the expiry (<code>chat.ask_expiry_seconds</code>). <code>chat.asks false</code> turns Asks off.</p>
+<ul>
+<li>When a workspace finishes or its space goes down, the open Asks in its room expire at once: nothing is left waiting.</li>
+<li>The chat server now follows the reference protocol&#x27;s 0.17.0 release, where Asks are a standard part. Every room gets</li>
+</ul>
+<p>the one-time &quot;the protocol changed&quot; note at the first start of this version.</p>
+<ul>
+<li>Asking and answering from <code>doz chat</code>, the dashboard and the space diagram come in the next version.</li>
+</ul>
+</body></html>
