@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.19</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.19</h1>
+<h1>doz 0.52.19</h1>
+<p>Space files act: <code>doz workspace up -f</code> and <code>down</code> (also <code>doz space up</code> / <code>down</code>).</p>
+<ul>
+<li><code>doz workspace up -f FILE</code> brings a workspace up from its space file: it shows the plan first, asks you to confirm</li>
+</ul>
+<p>every unfenced agent each time (wherever that setting came from), then makes what is missing — the workspace, its room, its workers — and starts a run. Running it again makes nothing new. Grants a file asks for are recorded as requests for you to grant, never granted by the file.</p>
+<ul>
+<li><code>doz workspace down</code> archives the run first, then takes it down: workers ended, their sessions forgotten, rooms and</li>
+</ul>
+<p>sandboxes made only for the run removed, scratch folders removed — nothing that holds content goes before its archived copy is checked. What the file keeps between runs (a room, a sandbox&#x27;s disk, a folder, an agent&#x27;s memory) stays for the next <code>up</code>, which brings the same room back and lets a persisted agent continue. <code>down --purge</code> retires what was kept too; your own folders are released, never deleted, and nothing external is touched. A file that turns the archive off says so, and down tells you what goes with no copy.</p>
+<ul>
+<li>A persisted fenced agent&#x27;s memory is kept by Dozable and given only to its own next fenced session.</li>
+<li>With a space file, the workspace&#x27;s brief is the file it names: editing the brief on the dashboard writes that file,</li>
+</ul>
+<p>and <code>up</code> never overwrites it. The workspace page shows which space file defines it and whether it is up.</p>
+<ul>
+<li><code>doz chat room close</code> / <code>open</code> closes or reopens a room no workspace owns.</li>
+</ul>
+</body></html>
