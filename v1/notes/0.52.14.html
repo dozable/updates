@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.14</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.14</h1>
+<h1>doz 0.52.14</h1>
+<p>Exports, chat members without a restart, and removing ended sessions.</p>
+<ul>
+<li>Adding or removing chat participants no longer restarts the chat server: it takes the change live (and falls back to</li>
+</ul>
+<p>a restart only when ports, webhooks or delivery change). <code>doz chat add A B C --to-dir DIR</code> and <code>doz chat remove A B C</code> change several at once. Bots and workspace workers benefit too.</p>
+<ul>
+<li><code>doz chat read ROOM --since T --until T</code> reads any span, past the old 500-message limit; `doz chat export ROOM --to</li>
+</ul>
+<p>DIR` writes the messages, their attachments and a manifest with checksums. Every export is checked for keys and tokens, and any found is removed and named.</p>
+<ul>
+<li><code>doz sessions @mac --transcripts S --export DIR</code> now exports an unfenced session&#x27;s own conversations as well as a</li>
+</ul>
+<p>fenced one&#x27;s — only that session&#x27;s files, never a link — and works with the daemon stopped.</p>
+<ul>
+<li>Sessions on this Mac that have ended or gone can be removed: a Remove button on each, &quot;Remove all ended&quot; on This Mac,</li>
+</ul>
+<p>or <code>doz sessions @mac --forget-ended</code> (<code>--dry-run</code> to look first). Their conversations are copied back first; a session in a workspace, or one whose conversation could not be copied back, is kept with the reason. Removing works only in this Mac&#x27;s own browser, and ending a session from another computer no longer forgets an ended one.</p>
+</body></html>
