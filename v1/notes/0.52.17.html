@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.17</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.17</h1>
+<h1>doz 0.52.17</h1>
+<p>The permissions model: what agents may do, with limits you set, and why.</p>
+<ul>
+<li><code>doz permissions show | grant | revoke | ceiling</code> and <code>doz why AGENT PERMISSION</code>: grants say allow, ask or never for</li>
+</ul>
+<p>an agent, a bot or a role, in one room, one workspace or everywhere; ceilings — this Mac&#x27;s, a bot&#x27;s, a workspace&#x27;s, and Dozable&#x27;s own — cap everything; any &quot;never&quot; always wins. <code>doz why</code> shows each step of a decision and which rule won. <code>doz grant …</code> and <code>doz bot ceiling …</code> work too.</p>
+<ul>
+<li>Roles come from the workspace (manager, worker, member), plus decider, admin and two manager presets you can grant.</li>
+</ul>
+<p><code>doz permissions show --roles</code> prints the table.</p>
+<ul>
+<li>Permissions constrain agents, never you: everything you do in a terminal or this Mac&#x27;s dashboard works exactly as</li>
+</ul>
+<p>before, whatever you set. No agent can drive Dozable yet, so <code>show</code> says the grants are not enforced yet; a request that would need an Ask is refused for now (&quot;Asks come later&quot;).</p>
+<ul>
+<li>A workspace&#x27;s Can do tab and a bot&#x27;s page show its permissions and ceiling (read-only for now).</li>
+<li>A new exit code, 9, means &quot;not permitted&quot;.</li>
+</ul>
+</body></html>
