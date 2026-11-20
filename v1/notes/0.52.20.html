@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.20</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.20</h1>
+<h1>doz 0.52.20</h1>
+<p>A space&#x27;s live state, its file from the dashboard, and a record of each run.</p>
+<ul>
+<li><code>doz workspace state W</code> shows a space&#x27;s state as this Mac sees it: each agent, sandbox, folder, room and member the</li>
+</ul>
+<p>file declares, whether it is there, what it is doing, what has drifted from the file, and what needs you (an agent waiting on a permission, a sandbox that failed). Looking never starts the daemon; with it stopped, things read as not known.</p>
+<ul>
+<li>The dashboard can read a workspace&#x27;s space file, check it (the same plan <code>doz workspace plan</code> prints) and save it.</li>
+</ul>
+<p>A save is refused if the file changed since it was opened, never runs <code>up</code>, and is made only in this Mac&#x27;s own browser; another computer reads the file only when chat is shared with it. <code>doz workspace show W --space</code> and <code>doz workspace edit W --space-file F --if-match SHA</code> do the same in a terminal.</p>
+<ul>
+<li>While a space runs, Dozable records its state each time it changes, kept with the run and checked in its archive.</li>
+</ul>
+<p><code>doz workspace runs W --frames RUN</code> lists them; a run from before this version has only its last state.</p>
+<ul>
+<li>The visual editor itself comes in a later version.</li>
+</ul>
+</body></html>
