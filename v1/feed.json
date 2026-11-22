@@ -1,6 +1,17 @@
 {
   "entries": [
     {
+      "archive": "https://github.com/dozable/dozable/releases/download/v0.52.35/doz-0.52.35-macos-arm64.tar.gz",
+      "build": 125,
+      "channel": "canary",
+      "date": "2026-11-22",
+      "notes": "https://updates.dozable.com/v1/notes/0.52.35.html",
+      "sha256": "e6c255f5a3efbf415ae9fd17cf25687e818348416dcf465e63f50f7188ddbba4",
+      "signature": "ij+GFGJ8MmoCYIN8UllyNVuZvylqkrFDBqEEu9wAbH17Ahqa7c/I/ZKw9y06sIDqfejX2EeoQdRPjnowX0jWDQ==",
+      "size": 34515149,
+      "version": "0.52.35"
+    },
+    {
       "archive": "https://github.com/dozable/dozable/releases/download/v0.52.34/doz-0.52.34-macos-arm64.tar.gz",
       "build": 124,
       "channel": "canary",
