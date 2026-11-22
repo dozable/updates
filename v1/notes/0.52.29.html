@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.29</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.29</h1>
+<h1>doz 0.52.29</h1>
+<p>The exit-code contract is frozen: one table decides every <code>doz</code> command&#x27;s exit status, and <code>doz help exit-codes [--json]</code> publishes it (0–9, 64 usage, 65 an invalid document or value, 75 partly done, 124 timed out, 125 doz itself failed around a program). Every JSON error now also carries its <code>exit</code>. An invalid value or document now exits 65 instead of 64 (unknown commands and flags stay 64); a space file&#x27;s errors exit 65 instead of 2; a <code>workspace up</code> or <code>down</code> that is partly done exits 75 and its <code>--json</code> says what is done, what remains and the command that retries the rest; a bot confirmation with no terminal exits 5; an ambiguous restore-point name exits 2. Some JSON error codes became more precise (<code>plan-changed</code>, <code>file-changed</code>, <code>needs-confirmation</code>, <code>usage</code>) with the same exits as before.</p>
+</body></html>
