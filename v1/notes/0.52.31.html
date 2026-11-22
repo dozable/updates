@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.31</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.31</h1>
+<h1>doz 0.52.31</h1>
+<p><code>doz workspace state</code> now answers for every workspace, however it was made — a workspace from the wizard or <code>doz workspace new</code> is no longer &quot;not found&quot; — with each agent&#x27;s condition (running, asleep, stopped, crashed, not started) and whether the workspace is ready, and its <code>--json</code> carries <code>kind</code> and <code>schema</code>. Answering an Ask that is already answered, expired or not yours now exits 3 with its own error code (<code>already-answered</code>, <code>invalid-phase</code>, <code>not-owned</code>) instead of 1, and the dashboard says so the same way. In a guarded test run, stopping the daemon of a scratch store now also ends that store&#x27;s sessions on this Mac, so a test never leaves a session behind.</p>
+</body></html>
