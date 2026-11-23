@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.41</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.41</h1>
+<h1>doz 0.52.41</h1>
+<p>The space editor in the dashboard reads and writes space/3.1 (the format author&#x27;s editor release, re-vendored at its pin). Dozable&#x27;s validator now agrees with the format&#x27;s 50 reference vectors on every verdict and path: <code>agent_defaults.where: sandbox</code> is valid in space/3.1 and puts every owned agent that doesn&#x27;t say where into the workspace&#x27;s own VM (<code>&lt;space&gt;-vm</code>); an unfenced agent may not have a network of its own; an agent in a VM may only repeat the workspace&#x27;s network; an adopted sandbox may not take <code>restart</code>; an empty <code>brief.refs</code>, <code>about.tags</code> or <code>network.allow</code> is refused; a space/3 file may not extend a space-defaults/3.1 file. A <code>lifetime:</code> on a single resource in a 3.1 file now says it stays under <code>x-dozable</code>, and an old <code>x-dozable.isolation: vm</code> gets a note naming <code>agent_defaults.where: sandbox</code>.</p>
+</body></html>
