@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.43</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.43</h1>
+<h1>doz 0.52.43</h1>
+<p>Lifecycle fixes. A standing space file&#x27;s plan now says what <code>down</code> keeps (it used to claim &quot;nothing persisted&quot;), and <code>show</code> / <code>ls</code> carry the workspace&#x27;s <code>lifetime</code>. <code>start</code> after <code>stop</code> brings every agent back — workers too, no <code>wake</code> needed — and a stopped workspace reads &quot;stopped&quot;, never &quot;asleep&quot; (the dashboard folds it with asleep and offers Wake). A sandbox&#x27;s disk is never removed without a copy: at <code>down</code> and <code>down --purge</code> it is saved as an image first and named in the result; if the save fails nothing is removed. <code>down</code>&#x27;s &quot;Kept:&quot; lists only the workspace&#x27;s own things — your folders are listed as untouched, adopted agents as released — a dry run says &quot;Down NAME — what it would do&quot; instead of asking to finish, and the internal &quot;(space-down)&quot; label is gone.</p>
+</body></html>
