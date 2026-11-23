@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.48</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.48</h1>
+<h1>doz 0.52.48</h1>
+<p>Each run now has a journal: an append-only, ordered record that people and agents write and any process reads — the trace a bring-your-own-process workspace leaves. <code>doz workspace journal W add KIND [TEXT]</code> appends an entry (a note, a task, a claim, a review, a finding, an outcome, a lesson, or a kind of your own); Dozable sets its order, time and author, and never stores a token in it. Nothing is ever edited: a correction is a new entry of the same kind with <code>--supersedes N</code>, and readers show the correction. <code>--attach FILE</code> copies a file from the workspace&#x27;s folders into the run and records its hash (<code>--attach-ref</code> hashes a large file in place). <code>doz workspace journal W --follow</code> streams entries, run boundaries and changes to the work description with one cursor to resume from, and <code>doz workspace wait W --for journal.KIND</code> returns as soon as such an entry exists. At finish the journal and its evidence go into the run&#x27;s archive and never change again. Agents read the journal by default; writing, correcting another&#x27;s entry and attaching are permissions (<code>journal.write</code> or <code>journal.write:KIND</code>, <code>journal.supersede</code>, <code>evidence.attach</code>), and the <code>reviewer</code> role carries them.</p>
+</body></html>
