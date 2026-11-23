@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.46</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.46</h1>
+<h1>doz 0.52.46</h1>
+<p>A unit of work now has its own verb: <code>doz workspace run W [GOAL]</code> opens a run with its goal (the brief when none is given), where it came from (<code>--source</code>), the run it follows (<code>--follows</code>), who opened it and the work description&#x27;s revision it read; it posts the goal in the room and starts the agents (<code>--no-start</code> to not). One run at a time: while one is open, <code>run</code> is refused (exit 3, <code>run-open</code>) and names <code>finish</code>. <code>reopen</code> is now the old name of <code>run</code>. <code>up</code> still opens a run when none is open, and <code>up --no-run</code> opens none. <code>runs --json</code> lists each run&#x27;s goal, source, revision, who opened it and how long it took. An agent needs the new permissions <code>run.open</code> and <code>run.finish</code> to open or finish runs; an existing <code>workspace.finish</code> grant still counts for both in this release.</p>
+</body></html>
