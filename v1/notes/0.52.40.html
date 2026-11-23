@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.40</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.40</h1>
+<h1>doz 0.52.40</h1>
+<p>Space files gain <code>doz: space/3.1</code>, whose model-neutral keys are first-class: <code>brief</code> (a path, <code>{text}</code> or <code>{file}</code>, with <code>refs</code>), <code>about</code> with <code>about.title</code>, <code>layout</code> and <code>network</code> at the top; <code>main</code> on a folder; <code>restart</code>, <code>network</code> and <code>external: { sandbox: NAME }</code> on an agent. <code>doz workspace doc</code> writes 3.1. A space/3 file reads exactly as before; the old <code>x-dozable</code> spellings of these keys still read for this release, each with a note naming space/3.1, and a 3.1 key under <code>doz: space/3</code> is refused with the version line to change. A workspace&#x27;s lifetime stays under <code>x-dozable</code> and is never required — a top-level <code>lifetime:</code> in a 3.1 file is refused, because persistence is coming as <code>lives:</code> in space/3.2 (the accepted workspace model). A top-level <code>title:</code> is still read this once, with a note to write <code>about.title</code>.</p>
+</body></html>
