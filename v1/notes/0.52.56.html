@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.56</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.56</h1>
+<h1>doz 0.52.56</h1>
+<p>An agent in a workspace is now an identity with sessions. The identity is who it is — name, role, kind, its token, its memory; a session is one run of its program in a place. A worker you name (<code>doz worker add W NAME</code>) lasts with the workspace: <code>doz worker end</code> stops its session and keeps it in the room with its memory, and adding it again brings back the same agent. A worker added only with a task belongs to the run and goes when it ends. A fenced agent&#x27;s memory is kept between its sessions whatever kind of workspace it is in, a switch between fenced and unfenced keeps it with a warning, and <code>doz worker reset W NAME</code> clears it. Each start gives an agent a new chat token (unless you took its token yourself with <code>doz chat token</code>, which then stays yours), and <code>down</code> revokes them. <code>down --purge</code> now works for every workspace: it copies each lasting agent&#x27;s memory into the workspace&#x27;s archive, checks the copy, and only then removes it. <code>doz workspace state --json</code> lists <code>identities</code> (with when each token was issued, never the token) and <code>sessions</code>; <code>worker ls</code> shows each worker&#x27;s lifetime and the agents kept with no session. Records written by earlier versions are read and rewritten in the new form.</p>
+</body></html>
