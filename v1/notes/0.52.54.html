@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.52.54</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.52.54</h1>
+<h1>doz 0.52.54</h1>
+<p>Where an agent runs is now a place of its own. A workspace&#x27;s places — its own micro VM, fenced on this Mac, or as you — are declared in its space file (under <code>x-dozable.places</code> for now) and named by each agent&#x27;s <code>where:</code>. A fenced place is a policy: the folders it sees (read-only or read-write), its network and its credentials; every session in it gets its own fence built from that policy, so two agents sharing a place never share a proxy, and an agent&#x27;s own network can only narrow its place&#x27;s. A micro VM&#x27;s place sets its sandbox&#x27;s network and folder. An unfenced place declares nothing and says so: &quot;none: acts as you&quot;. An adopted sandbox is an external place. <code>doz workspace plan</code> and <code>state --json</code> list the places, and state shows each place&#x27;s sessions and their fences. Permissions are always granted to an agent, never to a place.</p>
+</body></html>
