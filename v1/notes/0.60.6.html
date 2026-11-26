@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.60.6</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.60.6</h1>
+<h1>doz 0.60.6</h1>
+<p>Workspace files get their own name. Canary only.</p>
+<ul>
+<li>doz now writes a workspace&#x27;s file as <code>NAME.workspace.yaml</code>: <code>doz workspace new --template</code>, the dashboard&#x27;s templates and the space editor&#x27;s Export. Files called <code>NAME.space.yaml</code> keep working, forever. If both are beside each other for one name, the <code>.workspace.yaml</code> is read and doz says once that the other is ignored. An override follows its own file&#x27;s name.</li>
+<li>The file&#x27;s contents are unchanged, including its <code>doz: space/3.x</code> line, and so is the <code>doz space</code> command.</li>
+<li><code>canonical/workspace/</code> in the repository is now the one source of the canonical workspaces: the demo app, three of the engine&#x27;s examples and the five templates. The templates doz carries are generated from it, and a test fails when they drift apart.</li>
+</ul>
+</body></html>
