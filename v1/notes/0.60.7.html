@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doz 0.60.7</title>
+<style>:root{color-scheme:light dark}body{font:16px/1.55 -apple-system,system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}code,pre{font:14px ui-monospace,Menlo,monospace}pre{overflow:auto;padding:.75rem;border-radius:6px;background:color-mix(in srgb,currentColor 8%,transparent)}</style>
+</head><body>
+<h1>doz 0.60.7</h1>
+<h1>doz 0.60.7</h1>
+<p>Agents held on your Mac run at full speed again, and the space editor draws compact. Canary only.</p>
+<ul>
+<li>Sessions Dozable holds on this Mac ran at a low priority (utility, mostly the efficiency cores) whenever the daemon was started at login, so every held agent&#x27;s builds, tests and browser ran slower than the same agent in a terminal. The daemon&#x27;s login items now run as interactive, sessions are started at a normal priority, and a login item written before is rewritten at the next daemon start. The menu bar app&#x27;s Start at Login picks it up at your next login, or when you turn it off and on.</li>
+<li><code>doz doctor</code> warns when the daemon or a session on this Mac runs at that low priority.</li>
+<li>The space editor is on the isometric engine 0.26.0: workspaces can be drawn compact (labels much larger, nothing overlapping after a drag), and feeds are drawn.</li>
+</ul>
+</body></html>
